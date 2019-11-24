@@ -1,15 +1,12 @@
 /*
-** RANDOM HEADER
-**
-** This is a header
-**
+** PERSONAL PROJECT, 2019
+** LibParse
+** File description:
+** IFile
 */
-
 
 #ifndef IFile_HPP_
 #define IFile_HPP_
-
-
 
 ///@class IFile
 

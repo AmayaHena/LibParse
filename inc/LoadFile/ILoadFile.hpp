@@ -1,15 +1,12 @@
 /*
-** RANDOM HEADER
-**
-** This is a header
-**
+** PERSONAL PROJECT, 2019
+** LibParse
+** File description:
+** ILoadFile
 */
-
 
 #ifndef ILoadFile_HPP_
 #define ILoadFile_HPP_
-
-
 
 ///@class ILoadFile
 

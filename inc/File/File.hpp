@@ -1,10 +1,9 @@
 /*
-** RANDOM HEADER
-**
-** This is a header
-**
+** PERSONAL PROJECT, 2019
+** LibParse
+** File description:
+** File
 */
-
 
 #ifndef File_HPP_
 #define File_HPP_
