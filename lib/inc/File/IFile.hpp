@@ -8,15 +8,54 @@
 #ifndef IFile_HPP_
 #define IFile_HPP_
 
-///@class IFile
+    # include <iostream>
+    # include <vector>
 
-class IFile {
+namespace fileManager {
 
-    public:
+    ///@class IFile
+    /// File as an object with all specifications
 
-        virtual ~IFile() = default;
+    class IFile {
 
-        ///Function called for IFile
+        public:
+
+            virtual ~IFile() = default;
+
+            ///Function called for IFile
+
+
+
+            /* Getter(s) specifications */
+
+            ///Get content of the File object
+
+            ///Getter for content of the file loaded as File object
+            ///@return The content of the file
+            virtual std::vector<std::string>    getContent();
+
+
+            ///Get name of the File object
+
+            ///Getter for name of the file loaded as File object
+            ///@return The name of the file
+            virtual std::string     getName();
+
+
+            ///Get extension of the File object
+
+            ///Getter for extension of the file loaded as File object
+            ///@return The extension of the file
+            virtual std::string     getExtension();
+
+
+            ///Get path of the File object
+
+            ///Getter for path of the file loaded as File object
+            ///@return The path of the file
+            virtual std::string     getPath();
+
+    };
 
 };
 
