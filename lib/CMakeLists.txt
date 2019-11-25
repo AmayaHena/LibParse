@@ -1,19 +1,12 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.9)
+project(LibParse VERSION 0.1 DESCRIPTION "LibParse description")
 
-project(LibParse)
-
-set(SRCS
-	main.cpp
-	src/File/File.cpp
+add_library(LibParse SHARED
 	src/LoadFile/LoadFile.cpp
+	src/File/File.cpp
+)
 
-    )
-
-set(HEADERS
-	inc/File/File.hpp
+target_include_directories(LibParse PUBLIC inc
 	inc/LoadFile/LoadFile.hpp
-
-    )
-
-add_executable(LibParse ${SRCS} ${HEADERS})
-target_include_directories(LibParse PUBLIC inc)
+	inc/File/File.hpp
+)
