@@ -5,7 +5,7 @@
 ** LoadFile
 */
 
-#include "LoadFile/LoadFile.hpp"
+#include "../../inc/LoadFile/LoadFile.hpp"
 
 LoadFile::LoadFile() : ILoadFile()
 {

@@ -8,7 +8,7 @@
 #ifndef LoadFile_HPP_
 #define LoadFile_HPP_
 
-#include "LoadFile/ILoadFile.hpp"
+#include "ILoadFile.hpp"
 
 class LoadFile : public ILoadFile {
 
