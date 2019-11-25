@@ -31,11 +31,13 @@
 *.out
 *.app
 
-# Makefile if using CMake
-Makefile
+#CMake files
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles
 
 # VS Code folder
 .vscode
 
 # personal file
-LibParse
+test
