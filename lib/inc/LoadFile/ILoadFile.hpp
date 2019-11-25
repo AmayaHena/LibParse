@@ -10,10 +10,10 @@
 
     # include <IFile.hpp>
 
+namespace fileManager {
+
 ///@class ILoadFile
 /// Container of File(s) object(s) and sarch engine to get files
-
-namespace fileManager {
 
     class ILoadFile {
 
