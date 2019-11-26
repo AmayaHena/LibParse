@@ -12,8 +12,8 @@
 
 namespace fileManager {
 
-///@class ILoadFile
-/// Container of File(s) object(s) and sarch engine to get files
+    ///@class ILoadFile
+    /// Container of File(s) object(s) and sarch engine to get files
 
     class ILoadFile {
 
@@ -46,20 +46,13 @@ namespace fileManager {
 
             /* Getter(s) File(s) */
 
-            ///Get a File object by position
-
-            ///Get a File object by is number in the vector container of File object
-            ///@param nb is The current position of the file in the container
-            ///@return The File object according to the position @param nb given
-            virtual IFile    getFilePosition(int position);
-
-
-            ///Get first File by extension
+            ///Get first File by extension from a position
 
             ///Get the first File object inside the container according with the extension given
             ///@param extension is The extension to look for inside the container
-            ///@return The File object according to the extension @param extension given
-            virtual IFile    getFileByExtension(std::string extension);
+            ///@param position is The position that the search will begin
+            ///@return The File object according to the @param extension and @param position given
+            virtual IFile    getFileByExtension(std::string extension, int position);
 
 
             ///Get all Files by extension
@@ -70,28 +63,29 @@ namespace fileManager {
             virtual std::vector<IFile>    getAFileByExtension(std::string extension);
 
 
-            ///Get first File by name
+            ///Get first File by name from a position
 
-            ///Get the first File object inside the container according with the extension given
+            ///Get the first File object inside the container according with the name given
             ///@param name is The extension to look for inside the container
-            ///@return The File object according to the extension @param name given
-            virtual IFile    getFileByName(std::string name);
+            ///@param position is The position that the search will begin
+            ///@return The File object according to the @param name and @param position given
+            virtual IFile    getFileByName(std::string name, int position);
 
 
             ///Get all Files by name
 
-            ///Get all File(s) object(s) inside the container according with the extension given
-            ///@param name is The extension to look for inside the container
-            ///@return The File(s) object(s) according to the extension @param name given
+            ///Get all File(s) object(s) inside the container according with the name given
+            ///@param name is The name to look for inside the container
+            ///@return The File(s) object(s) according to the @param name given
             virtual std::vector<IFile>    getAFileByName(std::string name);
 
 
             ///Get File by path
 
-            ///Get the first File object inside the container according with the extension given
-            ///@param name is The extension to look for inside the container
-            ///@return The File object according to the extension @param name given
-            virtual IFile    getFileByName(std::string path);
+            ///Get the first File object inside the container according with the path given
+            ///@param path is The path to look for inside the container
+            ///@return The File object according to the extension @param path given
+            virtual IFile    getFileByPath(std::string path);
 
 
 
@@ -118,6 +112,25 @@ namespace fileManager {
             ///@param name is The extension to look for inside the container
             ///@return The number of File(s) object(s) according to @param name given
             virtual int    getFileNumberWName(std::string name);
+
+
+
+            /* Operator Overload */
+
+            ///Operator Overlaod []
+
+            ///Get a File object by his number in the vector container of File object
+            ///@param position is The current position of the file in the container
+            ///@return The File object according to the position @param position given
+            virtual int &operator[](int poisition);
+
+
+            ///Operator Overlaod =
+
+            ///Get a File object by his number in the vector container of File object
+            ///@param position is The current position of the file in the container
+            ///@return The File object according to the position @param position given
+            virtual int &operator=(int position);
 
     };
 
