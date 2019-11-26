@@ -57,12 +57,36 @@ namespace fileManager {
 
     bool File::parseInfo()
     {
+        std::size_t point = _path.find(".");
+        std::size_t slash = _path.find("/");
+
+        if (slash == std::string::npos && point == std::string::npos) {
+            _name = _path;
+            _extension = nullptr;
+            return true;
+        }
+
+        if (point != std::string::npos)
+            _extension = _path.substr(point, _path.length());
+        else
+            _extension = nullptr;
+
+        if (point != std::string::npos && slash == std::string::npos) {
+            _name = _path.substr(0, point);
+            return true;
+        }
+
+        for (slash = _path.length();_path[slash] != '/'; slash--);
+        _name = _path.substr(slash, point);
+        _extension = _path.substr(point, _path.length());
+        return true;
     }
 
     bool File::parsingFile()
     {
-        if (!parseInfo() || !loadFile())
+        if (!loadFile())
             return false;
+        parseInfo();
         return true;
     }
 
