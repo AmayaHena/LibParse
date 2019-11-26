@@ -16,12 +16,29 @@ namespace fileManager {
 
         public:
 
-            File();
-            ~File();
+            File() = default;
+            File(std::string path);
 
-        protected:
+            /* Setter */
+            bool setPath(std::string path);
+
+            /* Getters */
+            std::string getExtension() final;
+            std::string getName() final;
+            std::string getPath() final;
+            std::vector<std::string> getContent() final;
 
         private:
+
+            /* Parsing */
+            bool loadFile();
+            bool parseInfo();
+            bool parsingFile();
+
+            std::string _extension;
+            std::string _name;
+            std::string _path;
+            std::vector<std::string> _content;
 
     };
 

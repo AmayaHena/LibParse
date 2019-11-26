@@ -28,11 +28,11 @@ namespace fileManager {
 
             /* Getter(s) specifications */
 
-            ///Get content of the File object
+            ///Get extension of the File object
 
-            ///Getter for content of the file loaded as File object
-            ///@return The content of the file
-            virtual std::vector<std::string>    getContent();
+            ///Getter for extension of the file loaded as File object
+            ///@return The extension of the file
+            virtual std::string     getExtension();
 
 
             ///Get name of the File object
@@ -42,18 +42,18 @@ namespace fileManager {
             virtual std::string     getName();
 
 
-            ///Get extension of the File object
-
-            ///Getter for extension of the file loaded as File object
-            ///@return The extension of the file
-            virtual std::string     getExtension();
-
-
             ///Get path of the File object
 
             ///Getter for path of the file loaded as File object
             ///@return The path of the file
             virtual std::string     getPath();
+
+
+            ///Get content of the File object
+
+            ///Getter for content of the file loaded as File object
+            ///@return The content of the file
+            virtual std::vector<std::string>    getContent();
 
     };
 
