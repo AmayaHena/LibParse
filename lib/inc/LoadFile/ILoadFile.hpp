@@ -19,7 +19,7 @@ namespace fileManager {
 
         public:
 
-            virtual ~ILoadFile() = 0;
+            virtual ~ILoadFile() = default;
 
             ///Function called for ILoadFile
 

@@ -20,7 +20,7 @@ namespace fileManager {
 
         public:
 
-            virtual ~IFile();
+            virtual ~IFile() = default;
 
             ///Function called for IFile
 
