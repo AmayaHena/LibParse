@@ -25,6 +25,6 @@ namespace fileManager {
 
     };
 
-};
+}
 
 #endif /* LoadFile_HPP_ */

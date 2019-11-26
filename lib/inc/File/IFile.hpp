@@ -57,6 +57,6 @@ namespace fileManager {
 
     };
 
-};
+}
 
 #endif /* IFile_HPP_ */

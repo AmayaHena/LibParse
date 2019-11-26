@@ -126,6 +126,6 @@ namespace fileManager {
 
     };
 
-};
+}
 
 #endif /* ILoadFile_HPP_ */
