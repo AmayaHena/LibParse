@@ -10,16 +10,20 @@
 
 #include "ILoadFile.hpp"
 
-class LoadFile : public ILoadFile {
+namespace fileManager {
 
-    public:
+    class LoadFile : public ILoadFile {
 
-        LoadFile();
-        ~LoadFile();
+        public:
 
-    protected:
+            LoadFile();
+            ~LoadFile();
 
-    private:
+        protected:
+
+        private:
+
+    };
 
 };
 

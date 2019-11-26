@@ -7,10 +7,14 @@
 
 #include "LoadFile.hpp"
 
-LoadFile::LoadFile() : ILoadFile()
-{
-}
+namespace fileManager {
 
-LoadFile::~LoadFile()
-{
+    LoadFile::LoadFile() : ILoadFile()
+    {
+    }
+
+    LoadFile::~LoadFile()
+    {
+    }
+
 }

@@ -10,16 +10,20 @@
 
 #include "IFile.hpp"
 
-class File : public IFile {
+namespace fileManager {
 
-    public:
+    class File : public IFile {
 
-        File();
-        ~File();
+        public:
 
-    protected:
+            File();
+            ~File();
 
-    private:
+        protected:
+
+        private:
+
+    };
 
 };
 

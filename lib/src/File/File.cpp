@@ -7,10 +7,14 @@
 
 #include "File.hpp"
 
-File::File() : IFile()
-{
-}
+namespace fileManager {
 
-File::~File()
-{
-}
+    File::File() : IFile()
+    {
+    }
+
+    File::~File()
+    {
+    }
+
+};
