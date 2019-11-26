@@ -124,14 +124,6 @@ namespace fileManager {
             ///@return The File object according to the position @param position given
             virtual int &operator[](int poisition);
 
-
-            ///Operator Overlaod =
-
-            ///Get a File object by his number in the vector container of File object
-            ///@param position is The current position of the file in the container
-            ///@return The File object according to the position @param position given
-            virtual int &operator=(int position);
-
     };
 
 };
