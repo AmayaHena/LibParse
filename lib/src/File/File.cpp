@@ -15,8 +15,9 @@ namespace fileManager {
 
     bool File::setPath(std::string path)
     {
-        if (!_path.empty())
+        if (_path.empty())
             return false;
+        cleanRessources();
         _path = path;
         return parsingFile();
     }
@@ -41,6 +42,15 @@ namespace fileManager {
         return _content;
     }
 
+    void File::cleanRessources()
+    {
+        _extension.clear();
+        _name.clear();
+        _path.clear();
+        _content.clear();
+    }
+
+
     bool File::loadFile()
     {
         std::fstream f(_path);
@@ -62,7 +72,7 @@ namespace fileManager {
 
         if (slash == std::string::npos && point == std::string::npos) {
             _name = _path;
-            _extension = nullptr;
+            _extension.clear();
             return true;
         }
 

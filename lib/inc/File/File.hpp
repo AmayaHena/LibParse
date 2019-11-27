@@ -31,6 +31,7 @@ namespace fileManager {
         private:
 
             /* Parsing */
+            void cleanRessources();
             bool loadFile();
             bool parseInfo();
             bool parsingFile();
