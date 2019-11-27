@@ -48,6 +48,13 @@ namespace fileManager {
 
             /* Getter(s) File(s) */
 
+            ///Get all File(s)
+
+            ///Get all file(s) in the container
+            ///@return all The File(s) object(s)
+            virtual std::unique_ptr<IFile>    getAllFile() = 0;
+
+
             ///Get first File by extension from a position
 
             ///Get the first File object inside the container according with the extension given

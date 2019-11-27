@@ -8,7 +8,8 @@
 #ifndef LoadFile_HPP_
 #define LoadFile_HPP_
 
-#include "ILoadFile.hpp"
+    # include "ILoadFile.hpp"
+    # include "File.hpp"
 
 namespace fileManager {
 
@@ -16,12 +17,36 @@ namespace fileManager {
 
         public:
 
-            LoadFile();
-            ~LoadFile();
+            LoadFile() = default;
+            LoadFile(std::string &path);
 
-        protected:
+            /* Load file(s) */
+            bool load(std::string path) final;
+            bool load(std::vector<std::string> path) final;
+
+            /* Getters File(s) object(s) */
+            std::unique_ptr<IFile>    getAllFile() final;
+            std::unique_ptr<IFile> getFileByExtension(std::string extension, int position) final;
+            std::vector<std::unique_ptr<IFile>> getAFileByExtension(std::string extension) final;
+            std::unique_ptr<IFile> getFileByName(std::string name, int position) final;
+            std::vector<std::unique_ptr<IFile>> getAFileByName(std::string name) final;
+            std::unique_ptr<IFile> getFileByPath(std::string path) final;
+
+            /* Getters File(s) object(s) Stat(s) */
+            int getFileNumber() final;
+            int getFileNumberWExtension(std::string extension) final;
+            int getFileNumberWName(std::string name) final;
+
+            /* Overloading Operator */
+            std::unique_ptr<IFile> &operator[](int poisition) final;
 
         private:
+
+            /* Tools add & del */
+            bool addFile();
+            bool delFile();
+
+            std::vector<std::unique_ptr<File>> _container;
 
     };
 
