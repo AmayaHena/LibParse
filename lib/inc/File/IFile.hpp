@@ -26,6 +26,17 @@ namespace fileManager {
 
 
 
+            /* Setter(s) specifications */
+
+            //Set Path of the File object
+
+            ///Setter for path of the file loaded as File object
+            ///It also lauch the loading of the file
+            ///@param path is The path of the file
+            ///@return The status of the load, false for fail, then true for success
+            virtual bool    setPath(std::string &path) = 0;
+
+
             /* Getter(s) specifications */
 
             ///Get extension of the File object

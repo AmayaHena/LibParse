@@ -20,7 +20,7 @@ namespace fileManager {
             File(std::string &path);
 
             /* Setter */
-            bool setPath(std::string &path);
+            bool setPath(std::string &path) final;
 
             /* Getters */
             std::string getExtension() final;

@@ -19,13 +19,14 @@ namespace fileManager {
 
             LoadFile() = default;
             LoadFile(std::string &path);
+            LoadFile(std::vector<std::string> path);
 
             /* Load file(s) */
             bool load(std::string &path) final;
-            bool load(std::vector<std::string&> path) final;
+            bool load(std::vector<std::string> path) final;
 
             /* Getters File(s) object(s) */
-            std::unique_ptr<IFile> getAllFile() final;
+            std::vector<std::unique_ptr<IFile>> getAllFile() final;
             std::unique_ptr<IFile> getFileByExtension(std::string &extension, int position) final;
             std::vector<std::unique_ptr<IFile>> getAFileByExtension(std::string &extension) final;
             std::unique_ptr<IFile> getFileByName(std::string &name, int position) final;
@@ -33,20 +34,20 @@ namespace fileManager {
             std::unique_ptr<IFile> getFileByPath(std::string &path) final;
 
             /* Getters File(s) object(s) Stat(s) */
-            int getFileNumber() final;
-            int getFileNumberWExtension(std::string &extension) final;
-            int getFileNumberWName(std::string &name) final;
+            int unsigned getFileNumber() final;
+            int unsigned getFileNumberWExtension(std::string &extension) final;
+            int unsigned getFileNumberWName(std::string &name) final;
 
             /* Overloading Operator */
-            std::unique_ptr<IFile> &operator[](int poisition) final;
+            std::unique_ptr<IFile> &operator[](unsigned int poisition) final;
 
         private:
 
             /* Tools add & del */
-            bool addFile();
-            bool delFile();
+            bool addFile(std::string &path);
+            void delFile(unsigned int position);
 
-            std::vector<std::unique_ptr<File>> _container;
+            std::vector<std::unique_ptr<IFile>> _container;
 
     };
 

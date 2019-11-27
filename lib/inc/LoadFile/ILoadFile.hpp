@@ -42,7 +42,7 @@ namespace fileManager {
             ///Load multiple files by the paths
             ///@param paths is all paths of files would be load as File object
             ///@return The status of the load, false if something failed, true if everythis is fine
-            virtual bool    load(std::vector<std::string&> path) = 0;
+            virtual bool    load(std::vector<std::string> path) = 0;
 
 
 
@@ -52,7 +52,7 @@ namespace fileManager {
 
             ///Get all file(s) in the container
             ///@return all The File(s) object(s)
-            virtual std::unique_ptr<IFile>    getAllFile() = 0;
+            virtual std::vector<std::unique_ptr<IFile>>    getAllFile() = 0;
 
 
             ///Get first File by extension from a position
@@ -104,7 +104,7 @@ namespace fileManager {
 
             ///Get the number of File(s) object(s) in the container
             ///@return The number of File(s) object(s)
-            virtual int    getFileNumber() = 0;
+            virtual unsigned int    getFileNumber() = 0;
 
 
             ///Get number of File(s) object(s) with an specific extension
@@ -112,7 +112,7 @@ namespace fileManager {
             ///Get the number of File(s) object(s) with an specific extension in the container
             ///@param extension is The extension to look for inside the container
             ///@return The number of File(s) object(s) according to @param extension given
-            virtual int    getFileNumberWExtension(std::string &extension) = 0;
+            virtual unsigned int    getFileNumberWExtension(std::string &extension) = 0;
 
 
             ///Get number of File(s) object in the container by name
@@ -120,7 +120,7 @@ namespace fileManager {
             ///Get the number of File(s) object(s) with an specific extension in the container
             ///@param name is The extension to look for inside the container
             ///@return The number of File(s) object(s) according to @param name given
-            virtual int    getFileNumberWName(std::string &name) = 0;
+            virtual unsigned int    getFileNumberWName(std::string &name) = 0;
 
 
 
@@ -131,7 +131,7 @@ namespace fileManager {
             ///Get a File object by his number in the vector container of File object
             ///@param position is The current position of the file in the container
             ///@return The File object according to the position @param position given
-            virtual std::unique_ptr<IFile>      &operator[](int poisition) = 0;
+            virtual std::unique_ptr<IFile>      &operator[](unsigned int poisition) = 0;
 
     };
 
