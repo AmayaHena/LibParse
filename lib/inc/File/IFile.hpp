@@ -32,28 +32,28 @@ namespace fileManager {
 
             ///Getter for extension of the file loaded as File object
             ///@return The extension of the file
-            virtual std::string     getExtension();
+            virtual std::string     getExtension() = 0;
 
 
             ///Get name of the File object
 
             ///Getter for name of the file loaded as File object
             ///@return The name of the file
-            virtual std::string     getName();
+            virtual std::string     getName() = 0;
 
 
             ///Get path of the File object
 
             ///Getter for path of the file loaded as File object
             ///@return The path of the file
-            virtual std::string     getPath();
+            virtual std::string     getPath() = 0;
 
 
             ///Get content of the File object
 
             ///Getter for content of the file loaded as File object
             ///@return The content of the file
-            virtual std::vector<std::string>    getContent();
+            virtual std::vector<std::string>    getContent() = 0;
 
     };
 
