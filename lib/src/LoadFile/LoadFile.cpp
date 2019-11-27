@@ -9,7 +9,7 @@
 
 namespace fileManager {
 
-    LoadFile::LoadFile(std::string &path) : ILoadFile()
+    LoadFile::LoadFile(std::string &path)
     {
     }
 

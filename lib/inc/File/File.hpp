@@ -17,10 +17,10 @@ namespace fileManager {
         public:
 
             File() = default;
-            File(std::string path);
+            File(std::string &path);
 
             /* Setter */
-            bool setPath(std::string path);
+            bool setPath(std::string &path);
 
             /* Getters */
             std::string getExtension() final;
