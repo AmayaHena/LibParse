@@ -17,23 +17,23 @@ namespace fileManager {
     {
     }
 
-    std::unique_ptr<IFile> LoadFile::getFileByExtension(std::string extension, int position)
+    std::unique_ptr<IFile> LoadFile::getFileByExtension(std::string &extension, int position)
     {
     }
 
-    std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByExtension(std::string extension)
+    std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByExtension(std::string &extension)
     {
     }
 
-    std::unique_ptr<IFile> LoadFile::getFileByName(std::string name, int position)
+    std::unique_ptr<IFile> LoadFile::getFileByName(std::string &name, int position)
     {
     }
 
-    std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByName(std::string name)
+    std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByName(std::string &name)
     {
     }
 
-    std::unique_ptr<IFile> LoadFile::getFileByPath(std::string path)
+    std::unique_ptr<IFile> LoadFile::getFileByPath(std::string &path)
     {
     }
 
@@ -41,11 +41,11 @@ namespace fileManager {
     {
     }
 
-    int LoadFile::getFileNumberWExtension(std::string extension)
+    int LoadFile::getFileNumberWExtension(std::string &extension)
     {
     }
 
-    int LoadFile::getFileNumberWName(std::string name)
+    int LoadFile::getFileNumberWName(std::string &name)
     {
     }
 
@@ -57,11 +57,11 @@ namespace fileManager {
     {
     }
 
-    bool LoadFiledelFile()
+    bool LoadFile::delFile()
     {
     }
 
-    bool LoadFile::load(std::string path)
+    bool LoadFile::load(std::string &path)
     {
     }
 
