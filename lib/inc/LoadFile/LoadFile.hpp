@@ -18,25 +18,25 @@ namespace fileManager {
         public:
 
             LoadFile() = default;
-            LoadFile(std::string &path);
+            LoadFile(std::string path);
             LoadFile(std::vector<std::string> path);
 
             /* Load file(s) */
-            bool load(std::string &path) final;
+            bool load(std::string path) final;
             bool load(std::vector<std::string> path) final;
 
             /* Getters File(s) object(s) */
             // std::vector<std::unique_ptr<IFile>> getAllFile() final;
-            std::unique_ptr<IFile> &getFileByExtension(std::string &extension, unsigned int position) final;
+            std::unique_ptr<IFile> &getFileByExtension(std::string extension, unsigned int position) final;
             // std::vector<std::unique_ptr<IFile>> getAFileByExtension(std::string &extension) final;
-            std::unique_ptr<IFile> &getFileByName(std::string &name, unsigned int position) final;
+            std::unique_ptr<IFile> &getFileByName(std::string name, unsigned int position) final;
             // std::vector<std::unique_ptr<IFile>> getAFileByName(std::string &name) final;
-            std::unique_ptr<IFile> &getFileByPath(std::string &path) final;
+            std::unique_ptr<IFile> &getFileByPath(std::string path) final;
 
             /* Getters File(s) object(s) Stat(s) */
             int unsigned getFileNumber() final;
-            int unsigned getFileNumberWExtension(std::string &extension) final;
-            int unsigned getFileNumberWName(std::string &name) final;
+            int unsigned getFileNumberWExtension(std::string extension) final;
+            int unsigned getFileNumberWName(std::string name) final;
 
             /* Overloading Operator */
             std::unique_ptr<IFile> &operator[](unsigned int poisition) final;

@@ -9,7 +9,7 @@
 
 namespace fileManager {
 
-    LoadFile::LoadFile(std::string &path) { load(path); }
+    LoadFile::LoadFile(std::string path) { load(path); }
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
 
@@ -18,7 +18,7 @@ namespace fileManager {
         return _container;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByExtension(std::string &extension, unsigned int position)
+    std::unique_ptr<IFile> &LoadFile::getFileByExtension(std::string extension, unsigned int position)
     {
         for (unsigned int i = position; i < _container.size(); i++)
             if (_container[i]->getExtension() == extension)
@@ -36,7 +36,7 @@ namespace fileManager {
         return v;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByName(std::string &name, unsigned int position)
+    std::unique_ptr<IFile> &LoadFile::getFileByName(std::string name, unsigned int position)
     {
         if (position > _container.size())
             std::cout << "WTF" << std::endl;
@@ -59,7 +59,7 @@ namespace fileManager {
         return v;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByPath(std::string &path)
+    std::unique_ptr<IFile> &LoadFile::getFileByPath(std::string path)
     {
         for (std::unique_ptr<IFile> &f : _container)
             if (f->getPath() == path)
@@ -69,7 +69,7 @@ namespace fileManager {
 
     int unsigned LoadFile::getFileNumber() { return _container.size(); }
 
-    int unsigned LoadFile::getFileNumberWExtension(std::string &extension)
+    int unsigned LoadFile::getFileNumberWExtension(std::string extension)
     {
         unsigned int i = 0;
 
@@ -79,7 +79,7 @@ namespace fileManager {
         return i;
     }
 
-    int unsigned LoadFile::getFileNumberWName(std::string &name)
+    int unsigned LoadFile::getFileNumberWName(std::string name)
     {
         unsigned int i = 0;
 
@@ -101,7 +101,6 @@ namespace fileManager {
 
         if (!f->setPath(path))
             return false;
-        std::cout << "SUCCESS" << std::endl;
         _container.push_back(std::move(f));
         return true;
     }
@@ -111,7 +110,7 @@ namespace fileManager {
         _container.erase(_container.begin() + position);
     }
 
-    bool LoadFile::load(std::string &path)
+    bool LoadFile::load(std::string path)
     {
         if (!addFile(path))
             return false;
