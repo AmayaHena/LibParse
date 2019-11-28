@@ -86,8 +86,9 @@ namespace fileManager {
             return true;
         }
 
-        for (slash = _path.length();_path[slash] != '/'; slash--);
-        _name = _path.substr(slash, point);
+        for (slash = _path.length(); _path[slash] != '/'; slash--);
+        for (point = _path.length(); _path[point] != '.'; point--);
+        _name = _path.substr(slash + 1, point - slash - 1);
         _extension = _path.substr(point, _path.length());
         return true;
     }

@@ -9,21 +9,21 @@
 
 namespace fileManager {
 
-//    LoadFile::LoadFile(std::string &path) { load(path); }
+/*     LoadFile::LoadFile(std::string &path) { load(path); }
 
-//    LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
+    LoadFile::LoadFile(std::vector<std::string> path) { load(path); } */
 
 /*     std::vector<std::unique_ptr<IFile>> LoadFile::getAllFile()
     {
         return _container;
-    } */    // HERE
+    } */
 
-    /* std::unique_ptr<IFile> LoadFile::getFileByExtension(std::string &extension, int position)
+/*     std::unique_ptr<IFile> &LoadFile::getFileByExtension(std::string &extension, unsigned int position)
     {
         for (unsigned int i = position; i < _container.size(); i++)
             if (_container[i]->getExtension() == extension)
-                return _container[i];
-        return std::unique_ptr(nullptr);
+                return _container.at(i);
+        return _container.at(position);
     } */
 
 /*     std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByExtension(std::string &extension)
@@ -36,32 +36,34 @@ namespace fileManager {
         return v;
     } */
 
-    /* std::unique_ptr<IFile> LoadFile::getFileByName(std::string &name, int position)
+/*     std::unique_ptr<IFile> &LoadFile::getFileByName(std::string &name, unsigned int position)
     {
         for (unsigned int i = position; i < _container.size(); i++)
             if (_container[i]->getName() == name)
-                return _container[i];
-        return std::unique_ptr(nullptr);
+                return _container.at(i);
+        return _container.at(position);
     } */
 
 /*     std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByName(std::string &name)
     {
         std::vector<std::unique_ptr<IFile>> v;
+        unsigned int i = 0;
 
-        for (const std::unique_ptr<IFile> &f : _container)
+        for (const std::unique_ptr<IFile> &f : _container) {
             if (f->getName() == name)
-                v.push_back(f);
+                v.push_back(_container.at(i));
+            i++;
+        }
         return v;
     } */
 
-    /* std::unique_ptr<IFile> LoadFile::getFileByPath(std::string &path)
+/*     std::unique_ptr<IFile> &LoadFile::getFileByPath(std::string &path)
     {
-        for (const std::unique_ptr<IFile> &f : _container) {
+        for (std::unique_ptr<IFile> &f : _container)
             if (f->getPath() == path)
                 return f;
-        }
-        return std::unique_ptr(nullptr);
-    } */
+        return _container.at(0);
+    }
 
     int unsigned LoadFile::getFileNumber() { return _container.size(); }
 
@@ -119,6 +121,6 @@ namespace fileManager {
             if (!addFile(s))
                 return false;
         return true;
-    }
+    } */
 
 }

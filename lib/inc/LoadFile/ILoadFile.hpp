@@ -61,7 +61,7 @@ namespace fileManager {
             ///@param extension is The extension to look for inside the container
             ///@param position is The position that the search will begin
             ///@return The File object according to the @param extension and @param position given
-            virtual std::unique_ptr<IFile>    getFileByExtension(std::string &extension, int position) = 0;
+            virtual std::unique_ptr<IFile>    &getFileByExtension(std::string &extension, unsigned int position) = 0;
 
 
             ///Get all Files by extension
@@ -78,7 +78,7 @@ namespace fileManager {
             ///@param name is The extension to look for inside the container
             ///@param position is The position that the search will begin
             ///@return The File object according to the @param name and @param position given
-            virtual std::unique_ptr<IFile>    getFileByName(std::string &name, int position) = 0;
+            virtual std::unique_ptr<IFile>    &getFileByName(std::string &name, unsigned int position) = 0;
 
 
             ///Get all Files by name
@@ -94,7 +94,7 @@ namespace fileManager {
             ///Get the first File object inside the container according with the path given
             ///@param path is The path to look for inside the container
             ///@return The File object according to the extension @param path given
-            virtual std::unique_ptr<IFile>    getFileByPath(std::string &path) = 0;
+            virtual std::unique_ptr<IFile>    &getFileByPath(std::string &path) = 0;
 
 
 
