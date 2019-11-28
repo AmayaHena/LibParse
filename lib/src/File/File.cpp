@@ -15,8 +15,11 @@ namespace fileManager {
 
     bool File::setPath(std::string &path)
     {
-        if (_path.empty())
+        if (path.empty()) {
+            std::cout << "path : " << path << std::endl;
+            std::cout << "HERE" << std::endl;
             return false;
+        }
         cleanRessources();
         _path = path;
         return parsingFile();

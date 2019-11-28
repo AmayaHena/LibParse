@@ -52,7 +52,7 @@ namespace fileManager {
 
             ///Get all file(s) in the container
             ///@return all The File(s) object(s)
-            virtual std::vector<std::unique_ptr<IFile>>    getAllFile() = 0;
+            //virtual std::vector<std::unique_ptr<IFile>>    getAllFile() = 0;
 
 
             ///Get first File by extension from a position
@@ -69,7 +69,7 @@ namespace fileManager {
             ///Get all File(s) object(s) inside the container according with the extension given
             ///@param extension is The extension to look for inside the container
             ///@return The File(s) object(s) according to the extension @param extension given
-            virtual std::vector<std::unique_ptr<IFile>>    getAFileByExtension(std::string &extension) = 0;
+            //virtual std::vector<std::unique_ptr<IFile>>    getAFileByExtension(std::string &extension) = 0;
 
 
             ///Get first File by name from a position
@@ -86,7 +86,7 @@ namespace fileManager {
             ///Get all File(s) object(s) inside the container according with the name given
             ///@param name is The name to look for inside the container
             ///@return The File(s) object(s) according to the @param name given
-            virtual std::vector<std::unique_ptr<IFile>>    getAFileByName(std::string &name) = 0;
+            //virtual std::vector<std::unique_ptr<IFile>>    getAFileByName(std::string &name) = 0;
 
 
             ///Get File by path
