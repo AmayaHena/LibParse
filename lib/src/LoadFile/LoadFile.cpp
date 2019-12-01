@@ -89,7 +89,10 @@ namespace fileManager {
         return i;
     }
 
-    std::unique_ptr<IFile> &LoadFile::operator[](unsigned int position) { return _container[position]; }
+    std::unique_ptr<IFile> &LoadFile::operator[](unsigned int position)
+    {
+        return _container.at(position);
+    }
 
     bool LoadFile::addFile(std::string &path)
     {

@@ -48,6 +48,7 @@ namespace fileManager {
             void delFile(unsigned int position);
 
             std::vector<std::unique_ptr<IFile>> _container;
+            std::unique_ptr<IFile> _error;
 
     };
 
