@@ -8,12 +8,11 @@
 #ifndef LoadFile_HPP_
 #define LoadFile_HPP_
 
-    # include "ILoadFile.hpp"
     # include "File.hpp"
 
 namespace fileManager {
 
-    class LoadFile : public ILoadFile {
+    class LoadFile {
 
         public:
 
@@ -22,24 +21,24 @@ namespace fileManager {
             LoadFile(std::vector<std::string> path);
 
             /* Load file(s) */
-            bool load(std::string path) final;
-            bool load(std::vector<std::string> path) final;
+            bool load(std::string path);
+            bool load(std::vector<std::string> path);
 
             /* Getters File(s) object(s) */
-            // std::vector<std::unique_ptr<IFile>> getAllFile() final;
-            std::unique_ptr<IFile> &getFileByExtension(std::string extension, unsigned int position) final;
-            // std::vector<std::unique_ptr<IFile>> getAFileByExtension(std::string &extension) final;
-            std::unique_ptr<IFile> &getFileByName(std::string name, unsigned int position) final;
-            // std::vector<std::unique_ptr<IFile>> getAFileByName(std::string &name) final;
-            std::unique_ptr<IFile> &getFileByPath(std::string path) final;
+            std::vector<File> getAllFile();
+            File &getFileByExtension(std::string extension, unsigned int position);
+            std::vector<File> getAFileByExtension(std::string &extension);
+            File &getFileByName(std::string name, unsigned int position);
+            std::vector<File> getAFileByName(std::string &name);
+            File &getFileByPath(std::string path);
 
             /* Getters File(s) object(s) Stat(s) */
-            int unsigned getFileNumber() final;
-            int unsigned getFileNumberWExtension(std::string extension) final;
-            int unsigned getFileNumberWName(std::string name) final;
+            int unsigned getFileNumber();
+            int unsigned getFileNumberWExtension(std::string extension);
+            int unsigned getFileNumberWName(std::string name);
 
             /* Overloading Operator */
-            std::unique_ptr<IFile> &operator[](unsigned int poisition) final;
+            File &operator[](unsigned int poisition);
 
         private:
 
@@ -47,8 +46,8 @@ namespace fileManager {
             bool addFile(std::string &path);
             void delFile(unsigned int position);
 
-            std::vector<std::unique_ptr<IFile>> _container;
-            std::unique_ptr<IFile> _error;
+            std::vector<File> _container;
+            File _error;
 
     };
 

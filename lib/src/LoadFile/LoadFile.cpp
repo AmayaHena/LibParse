@@ -13,45 +13,43 @@ namespace fileManager {
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
 
-/*     std::vector<std::unique_ptr<IFile>> LoadFile::getAllFile()
+/*     std::vector<File> LoadFile::getAllFile()
     {
         return _container;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByExtension(std::string extension, unsigned int position)
+    File &LoadFile::getFileByExtension(std::string extension, unsigned int position)
     {
         for (unsigned int i = position; i < _container.size(); i++)
-            if (_container[i]->getExtension() == extension)
+            if (_container[i].getExtension() == extension)
                 return _container.at(i);
         return _container.at(position);
     }
 
-/*     std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByExtension(std::string &extension)
+/*     File LoadFile::getAFileByExtension(std::string &extension)
     {
-        std::vector<std::unique_ptr<IFile>> v;
+        std::vector<File> v;
 
-        for (const std::unique_ptr<IFile> &f : _container)
+        for (const File &f : _container)
             if (f->getExtension() == extension)
                 v.push_back(f);
         return v;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByName(std::string name, unsigned int position)
+    File &LoadFile::getFileByName(std::string name, unsigned int position)
     {
-        if (position > _container.size())
-            std::cout << "WTF" << std::endl;
         for (unsigned int i = position; i < _container.size(); i++)
-            if (_container[i]->getName() == name)
+            if (_container[i].getName() == name)
                 return _container.at(i);
         return _container.at(position);
     }
 
-/*     std::vector<std::unique_ptr<IFile>> LoadFile::getAFileByName(std::string &name)
+/*     std::vector<File> LoadFile::getAFileByName(std::string &name)
     {
-        std::vector<std::unique_ptr<IFile>> v;
+        std::vector<File> v;
         unsigned int i = 0;
 
-        for (const std::unique_ptr<IFile> &f : _container) {
+        for (const File &f : _container) {
             if (f->getName() == name)
                 v.push_back(_container.at(i));
             i++;
@@ -59,10 +57,10 @@ namespace fileManager {
         return v;
     } */
 
-    std::unique_ptr<IFile> &LoadFile::getFileByPath(std::string path)
+    File &LoadFile::getFileByPath(std::string path)
     {
-        for (std::unique_ptr<IFile> &f : _container)
-            if (f->getPath() == path)
+        for (File &f : _container)
+            if (f.getPath() == path)
                 return f;
         return _container.at(0);
     }
@@ -73,8 +71,8 @@ namespace fileManager {
     {
         unsigned int i = 0;
 
-        for (const std::unique_ptr<IFile> &f : _container)
-            if (f->getExtension() == extension)
+        for (File &f : _container)
+            if (f.getExtension() == extension)
                 i++;
         return i;
     }
@@ -83,13 +81,13 @@ namespace fileManager {
     {
         unsigned int i = 0;
 
-        for (const std::unique_ptr<IFile> &f : _container)
-            if (f->getName() == name)
+        for (File &f : _container)
+            if (f.getName() == name)
                 i++;
         return i;
     }
 
-    std::unique_ptr<IFile> &LoadFile::operator[](unsigned int position)
+    File &LoadFile::operator[](unsigned int position)
     {
         return _container.at(position);
     }
@@ -97,12 +95,12 @@ namespace fileManager {
     bool LoadFile::addFile(std::string &path)
     {
         for (unsigned int i = 0; i < _container.size(); i++)
-            if (_container[i]->getPath() == path)
+            if (_container[i].getPath() == path)
                 delFile(i);
 
-        std::unique_ptr<IFile> f = std::make_unique<File>();
+        File f;
 
-        if (!f->setPath(path))
+        if (!f.setPath(path))
             return false;
         _container.push_back(std::move(f));
         return true;

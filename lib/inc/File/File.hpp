@@ -8,11 +8,12 @@
 #ifndef File_HPP_
 #define File_HPP_
 
-    # include "IFile.hpp"
+    # include <iostream>
+    # include <vector>
 
 namespace fileManager {
 
-    class File : public IFile {
+    class File{
 
         public:
 
@@ -20,13 +21,13 @@ namespace fileManager {
             File(std::string &path);
 
             /* Setter */
-            bool setPath(std::string &path) final;
+            bool setPath(std::string &path);
 
             /* Getters */
-            std::string getExtension() final;
-            std::string getName() final;
-            std::string getPath() final;
-            std::vector<std::string> getContent() final;
+            std::string getExtension();
+            std::string getName();
+            std::string getPath();
+            std::vector<std::string> getContent();
 
         private:
 
