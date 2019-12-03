@@ -20,9 +20,10 @@ namespace fileManager {
             LoadFile(std::string path);
             LoadFile(std::vector<std::string> path);
 
-            /* Load file(s) */
+            /* Management of File(s) object(s) */
             bool load(std::string path);
             bool load(std::vector<std::string> path);
+            void delFile(unsigned int position);
 
             /* Getters File(s) object(s) */
             std::vector<File> getAllFile();
@@ -44,7 +45,6 @@ namespace fileManager {
 
             /* Tools add & del */
             bool addFile(std::string &path);
-            void delFile(unsigned int position);
 
             std::vector<File> _container;
             File _error;
