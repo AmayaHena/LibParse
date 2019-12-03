@@ -94,9 +94,12 @@ namespace fileManager {
 
     bool LoadFile::addFile(std::string &path)
     {
-        for (unsigned int i = 0; i < _container.size(); i++)
-            if (_container[i].getPath() == path)
-                delFile(i);
+        for (unsigned int i = 0; i < _container.size(); i++) {
+            if (_container[i].getPath() == path) {
+                _container[i].setPath(path);
+                return true;
+            }
+        }
 
         File f;
 

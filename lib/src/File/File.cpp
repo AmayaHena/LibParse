@@ -15,11 +15,8 @@ namespace fileManager {
 
     bool File::setPath(std::string &path)
     {
-        if (path.empty()) {
-            std::cout << "path : " << path << std::endl;
-            std::cout << "HERE" << std::endl;
+        if (path.empty())
             return false;
-        }
         cleanRessources();
         _path = path;
         return parsingFile();
@@ -52,7 +49,6 @@ namespace fileManager {
         _path.clear();
         _content.clear();
     }
-
 
     bool File::loadFile()
     {
@@ -93,6 +89,8 @@ namespace fileManager {
         for (point = _path.length(); _path[point] != '.'; point--);
         _name = _path.substr(slash + 1, point - slash - 1);
         _extension = _path.substr(point, _path.length());
+        if (_extension[1] == '/')
+            _extension.clear();
         return true;
     }
 
