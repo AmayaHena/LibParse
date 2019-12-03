@@ -26,7 +26,7 @@ namespace fileManager {
         return _container.at(position);
     }
 
-    std::vector<File> LoadFile::getAFileByExtension(std::string &extension)
+    std::vector<File> LoadFile::getAFileByExtension(std::string extension)
     {
         std::vector<File> v;
 
@@ -44,7 +44,7 @@ namespace fileManager {
         return _container.at(position);
     }
 
-    std::vector<File> LoadFile::getAFileByName(std::string &name)
+    std::vector<File> LoadFile::getAFileByName(std::string name)
     {
         std::vector<File> v;
         unsigned int i = 0;

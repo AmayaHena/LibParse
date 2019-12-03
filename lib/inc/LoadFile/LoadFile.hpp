@@ -28,9 +28,9 @@ namespace fileManager {
             /* Getters File(s) object(s) */
             std::vector<File> getAllFile();
             File &getFileByExtension(std::string extension, unsigned int position);
-            std::vector<File> getAFileByExtension(std::string &extension);
+            std::vector<File> getAFileByExtension(std::string extension);
             File &getFileByName(std::string name, unsigned int position);
-            std::vector<File> getAFileByName(std::string &name);
+            std::vector<File> getAFileByName(std::string name);
             File &getFileByPath(std::string path);
 
             /* Getters File(s) object(s) Stat(s) */
