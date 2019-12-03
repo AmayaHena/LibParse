@@ -13,10 +13,10 @@ namespace fileManager {
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
 
-/*     std::vector<File> LoadFile::getAllFile()
+    std::vector<File> LoadFile::getAllFile()
     {
         return _container;
-    } */
+    }
 
     File &LoadFile::getFileByExtension(std::string extension, unsigned int position)
     {
@@ -26,15 +26,15 @@ namespace fileManager {
         return _container.at(position);
     }
 
-/*     File LoadFile::getAFileByExtension(std::string &extension)
+    std::vector<File> LoadFile::getAFileByExtension(std::string &extension)
     {
         std::vector<File> v;
 
-        for (const File &f : _container)
-            if (f->getExtension() == extension)
+        for (File &f : _container)
+            if (f.getExtension() == extension)
                 v.push_back(f);
         return v;
-    } */
+    }
 
     File &LoadFile::getFileByName(std::string name, unsigned int position)
     {
@@ -44,18 +44,18 @@ namespace fileManager {
         return _container.at(position);
     }
 
-/*     std::vector<File> LoadFile::getAFileByName(std::string &name)
+    std::vector<File> LoadFile::getAFileByName(std::string &name)
     {
         std::vector<File> v;
         unsigned int i = 0;
 
-        for (const File &f : _container) {
-            if (f->getName() == name)
+        for (File &f : _container) {
+            if (f.getName() == name)
                 v.push_back(_container.at(i));
             i++;
         }
         return v;
-    } */
+    }
 
     File &LoadFile::getFileByPath(std::string path)
     {
