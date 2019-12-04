@@ -11,22 +11,30 @@ namespace fileManager {
 
     std::string ParserFile::cleanLine(std::string s)
     {
-        for (int i = s.size(); i >= 0; i--)
-            if (s[i] == ' ')
+        for (int i = s.size(); i >= 0; i--) {
+            if (s[i] == ' ') {
                 s.erase(i);
+                if (s[i - 1] != ' ')
+                    break;
+            }
+        }
         return s;
     }
 
     std::vector<std::string> ParserFile::cleanVector(std::vector<std::string> v)
     {
         std::vector<std::string> r;
+        std::string tmp;
 
         for (const std::string &s: v) {
             if (!v.empty())
-                r.push_back(s);
-            else
-                r.push_back(cleanLine(s));
+                tmp = cleanLine(s);
+            if (!s.empty()) {
+                r.push_back(tmp);
+                tmp.clear();
+            }
         }
+
         return r;
     }
 
