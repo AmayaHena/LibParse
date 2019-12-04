@@ -1,2 +1,2 @@
 # LibParse
-Project to make an easy and usefull lib for parsing in C++ by my way
+A try to make an easy and usefull lib to parse things
