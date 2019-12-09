@@ -4,14 +4,11 @@ project(LibParse VERSION 0.1 DESCRIPTION "LibParse description")
 SET(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Werror")
 
 add_library(LibParse SHARED
-    lib/src/LoadFile/LoadFile.cpp
-    lib/src/File/File.cpp
-    lib/src/ParserFile/ParserFile.cpp
+    lib/fileManager/src/LoadFile.cpp
+    lib/fileManager/src/File.cpp
+    lib/fileManager/src/ParserFile.cpp
 )
 target_include_directories(LibParse
-    PUBLIC lib/inc
-    PUBLIC lib/inc/LoadFile
-    PUBLIC lib/inc/File
-    PUBLIC lib/inc/ParserFile
+    PUBLIC lib/fileManager/inc/
 )
 
