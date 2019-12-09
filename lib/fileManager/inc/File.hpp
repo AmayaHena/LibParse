@@ -20,6 +20,9 @@ namespace fileManager {
             File() = default;
             File(std::string &path);
 
+            /* Method Tool */
+            bool refresh();
+
             /* Setter */
             bool setPath(std::string &path);
 

@@ -13,6 +13,11 @@ namespace fileManager {
 
     File::File(std::string &path) : _path(path) { parsingFile(); }
 
+    bool File::refresh()
+    {
+        return setPath(_path);
+    }
+
     bool File::setPath(std::string &path)
     {
         if (path.empty())
