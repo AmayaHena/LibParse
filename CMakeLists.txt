@@ -7,8 +7,10 @@ add_library(LibParse SHARED
     lib/fileManager/src/LoadFile.cpp
     lib/fileManager/src/File.cpp
     lib/fileManager/src/ParserFile.cpp
+    lib/typeConv/src/basicConv.cpp
 )
 target_include_directories(LibParse
     PUBLIC lib/fileManager/inc/
+    PUBLIC lib/typeConv/inc/
 )
 
