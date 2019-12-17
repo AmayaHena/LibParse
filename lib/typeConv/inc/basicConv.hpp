@@ -14,9 +14,6 @@ namespace typeConv {
 
         public:
 
-            basicConv() = default;
-            ~basicConv() = default;
-
         private:
 
     };
