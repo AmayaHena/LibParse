@@ -34,6 +34,13 @@ namespace formatParser {
 
         private:
 
+            /* JSON Parsing Tools */
+
+            /* JSON Parsing Core */
+            std::unordered_map<std::string, std::string> parseAD(std::vector<std::string> v);
+            std::unordered_map<std::string, std::string> parseS(std::vector<std::string> v, std::string match);
+            std::string parseO(std::vector<std::string> v, std::string match);
+
     };
 
 }
