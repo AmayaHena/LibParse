@@ -27,17 +27,17 @@ namespace fileManager {
         return parsingFile();
     }
 
-    std::string File::getExtension()
+    std::string &File::getExtension()
     {
         return _extension;
     }
 
-    std::string File::getName()
+    std::string &File::getName()
     {
         return _name;
     }
 
-    std::string File::getPath()
+    std::string &File::getPath()
     {
         return _path;
     }
