@@ -9,10 +9,10 @@ add_library(LibParse SHARED
     lib/fileManager/src/ParserFile.cpp
     lib/typeConv/src/basicConv.cpp
     lib/formatParser/src/jsonParser.cpp
+    lib/formatParser/src/xmlParser.cpp
 )
 target_include_directories(LibParse
     PUBLIC lib/fileManager/inc/
     PUBLIC lib/typeConv/inc/
     PUBLIC lib/formatParser/inc/
 )
-
