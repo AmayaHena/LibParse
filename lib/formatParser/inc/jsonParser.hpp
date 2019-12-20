@@ -21,12 +21,12 @@ namespace formatParser {
         public:
 
             /* Parse JSON all Data */
-            std::unordered_map<std::string, std::string> parse(fileManager::File f);
-            std::unordered_map<std::string, std::string> parse(std::vector<std::string> v);
+            std::vector<std::pair<std::string, std::string>> parse(fileManager::File f);
+            std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v);
 
             /* Parse JSON with a section name */
-            std::unordered_map<std::string, std::string> parse(fileManager::File f, std::string match);
-            std::unordered_map<std::string, std::string> parse(std::vector<std::string> v, std::string match);
+            std::vector<std::pair<std::string, std::string>> parse(fileManager::File f, std::string match);
+            std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v, std::string match);
 
             /* Parse JSON for one data */
             std::string parseOne(fileManager::File f, std::string match);
@@ -37,8 +37,8 @@ namespace formatParser {
             /* JSON Parsing Tools */
 
             /* JSON Parsing Core */
-            std::unordered_map<std::string, std::string> parseAD(std::vector<std::string> v);
-            std::unordered_map<std::string, std::string> parseS(std::vector<std::string> v, std::string match);
+            std::vector<std::pair<std::string, std::string>> parseAD(std::vector<std::string> v);
+            std::vector<std::pair<std::string, std::string>> parseS(std::vector<std::string> v, std::string match);
             std::string parseO(std::vector<std::string> v, std::string match);
 
     };
