@@ -21,34 +21,44 @@ namespace formatParser {
 
     std::string jsonParser::parseOne(std::vector<std::string> v, std::string match) { return parseO(v, match); }
 
-    std::string jsonParser::getLValue(const std::string s)
+    std::string jsonParser::getLValue(std::string s)
     {
         std::string rez;
+        (void)s;
         return rez;
     }
 
-    std::string jsonParser::getRValue(const std::string s)
+    std::string jsonParser::getRValue(std::string s)
     {
         std::string rez;
+        (void)s;
         return rez;
     }
 
     std::vector<std::pair<std::string, std::string>> jsonParser::parseAD(std::vector<std::string> v)
     {
-        std::vector<std::pair<std::string, std::string>> m;
+        std::vector<std::pair<std::string, std::string>> rez;
 
         if (v.empty())
-            return m;
-        return m;
+            return rez;
+        return rez;
     }
 
     std::vector<std::pair<std::string, std::string>> jsonParser::parseS(std::vector<std::string> v, std::string match)
     {
-        std::vector<std::pair<std::string, std::string>> m;
+        std::vector<std::pair<std::string, std::string>> rez;
 
         if (v.empty() || match.empty())
-            return m;
-        return m;
+            return rez;
+
+        unsigned int i = 0;
+
+        while (i < v.size())
+            if (v[i++].find("\"" + match + "\"") != std::string::npos)
+                break;
+        while (v[i++].find("}") != std::string::npos)
+            rez.push_back(make_pair (getLValue(v[i]), getRValue(v[i])) );
+        return rez;
     }
 
     std::string jsonParser::parseO(std::vector<std::string> v, std::string match)
@@ -58,7 +68,7 @@ namespace formatParser {
         if (v.empty() || match.empty())
             return rez;
         for (const std::string &s : v)
-            if (s.find(match))
+            if (s.find("\"" + match + "\"") != std::string::npos)
                 return getRValue(s);
         return rez;
     }

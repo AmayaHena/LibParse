@@ -35,8 +35,8 @@ namespace formatParser {
         private:
 
             /* JSON Parsing Tools */
-            std::string getLValue(const std::string s);
-            std::string getRValue(const std::string s);
+            std::string getLValue(std::string s);
+            std::string getRValue(std::string s);
 
             /* JSON Parsing Core */
             std::vector<std::pair<std::string, std::string>> parseAD(std::vector<std::string> v);
