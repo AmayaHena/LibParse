@@ -56,7 +56,7 @@ namespace formatParser {
         while (i < v.size())
             if (v[i++].find("\"" + match + "\"") != std::string::npos)
                 break;
-        while (v[i++].find("}") != std::string::npos)
+        while (v[i++].find("}") != std::string::npos || i < v.size())
             rez.push_back(make_pair (getLValue(v[i]), getRValue(v[i])) );
         return rez;
     }
