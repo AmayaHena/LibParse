@@ -34,9 +34,9 @@ namespace fileManager {
             File &getFileByPath(std::string path);
 
             /* Getters File(s) object(s) Stat(s) */
-            int unsigned getFileNumber();
-            int unsigned getFileNumberWExtension(std::string extension);
-            int unsigned getFileNumberWName(std::string name);
+            unsigned int getFileNumber();
+            unsigned int getFileNumberWExtension(std::string extension);
+            unsigned int getFileNumberWName(std::string name);
 
             /* Overloading Operator */
             File &operator[](unsigned int poisition);

@@ -65,9 +65,9 @@ namespace fileManager {
         return _container.at(0);
     }
 
-    int unsigned LoadFile::getFileNumber() { return _container.size(); }
+    unsigned int LoadFile::getFileNumber() { return _container.size(); }
 
-    int unsigned LoadFile::getFileNumberWExtension(std::string extension)
+    unsigned int LoadFile::getFileNumberWExtension(std::string extension)
     {
         unsigned int i = 0;
 
@@ -77,7 +77,7 @@ namespace fileManager {
         return i;
     }
 
-    int unsigned LoadFile::getFileNumberWName(std::string name)
+    unsigned int LoadFile::getFileNumberWName(std::string name)
     {
         unsigned int i = 0;
 
