@@ -57,7 +57,7 @@ namespace formatParser {
         if (v.empty() || match.empty())
             return rez;
 
-        unsigned int i = 0;
+        size_t i = 0;
 
         while (i < v.size())
             if (v[i++].find("\"" + match + "\": {") != std::string::npos)

@@ -23,23 +23,23 @@ namespace fileManager {
             /* Management of File(s) object(s) */
             bool load(std::string path);
             bool load(std::vector<std::string> path);
-            void delFile(unsigned int position);
+            void delFile(size_t position);
 
             /* Getters File(s) object(s) */
             std::vector<File> getAllFile();
-            File &getFileByExtension(std::string extension, unsigned int position);
+            File &getFileByExtension(std::string extension, size_t position);
             std::vector<File> getAFileByExtension(std::string extension);
-            File &getFileByName(std::string name, unsigned int position);
+            File &getFileByName(std::string name, size_t position);
             std::vector<File> getAFileByName(std::string name);
             File &getFileByPath(std::string path);
 
             /* Getters File(s) object(s) Stat(s) */
-            unsigned int getFileNumber();
-            unsigned int getFileNumberWExtension(std::string extension);
-            unsigned int getFileNumberWName(std::string name);
+            size_t getFileNumber();
+            size_t getFileNumberWExtension(std::string extension);
+            size_t getFileNumberWName(std::string name);
 
             /* Overloading Operator */
-            File &operator[](unsigned int poisition);
+            File &operator[](size_t poisition);
 
         private:
 

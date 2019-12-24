@@ -18,9 +18,9 @@ namespace fileManager {
         return _container;
     }
 
-    File &LoadFile::getFileByExtension(std::string extension, unsigned int position)
+    File &LoadFile::getFileByExtension(std::string extension, size_t position)
     {
-        for (unsigned int i = position; i < _container.size(); i++)
+        for (size_t i = position; i < _container.size(); i++)
             if (_container[i].getExtension() == extension)
                 return _container.at(i);
         return _container.at(position);
@@ -36,9 +36,9 @@ namespace fileManager {
         return v;
     }
 
-    File &LoadFile::getFileByName(std::string name, unsigned int position)
+    File &LoadFile::getFileByName(std::string name, size_t position)
     {
-        for (unsigned int i = position; i < _container.size(); i++)
+        for (size_t i = position; i < _container.size(); i++)
             if (_container[i].getName() == name)
                 return _container.at(i);
         return _container.at(position);
@@ -47,7 +47,7 @@ namespace fileManager {
     std::vector<File> LoadFile::getAFileByName(std::string name)
     {
         std::vector<File> v;
-        unsigned int i = 0;
+        size_t i = 0;
 
         for (File &f : _container) {
             if (f.getName() == name)
@@ -65,11 +65,11 @@ namespace fileManager {
         return _container.at(0);
     }
 
-    unsigned int LoadFile::getFileNumber() { return _container.size(); }
+    size_t LoadFile::getFileNumber() { return _container.size(); }
 
-    unsigned int LoadFile::getFileNumberWExtension(std::string extension)
+    size_t LoadFile::getFileNumberWExtension(std::string extension)
     {
-        unsigned int i = 0;
+        size_t i = 0;
 
         for (File &f : _container)
             if (f.getExtension() == extension)
@@ -77,9 +77,9 @@ namespace fileManager {
         return i;
     }
 
-    unsigned int LoadFile::getFileNumberWName(std::string name)
+    size_t LoadFile::getFileNumberWName(std::string name)
     {
-        unsigned int i = 0;
+        size_t i = 0;
 
         for (File &f : _container)
             if (f.getName() == name)
@@ -87,14 +87,14 @@ namespace fileManager {
         return i;
     }
 
-    File &LoadFile::operator[](unsigned int position)
+    File &LoadFile::operator[](size_t position)
     {
         return _container.at(position);
     }
 
     bool LoadFile::addFile(std::string &path)
     {
-        for (unsigned int i = 0; i < _container.size(); i++) {
+        for (size_t i = 0; i < _container.size(); i++) {
             if (_container[i].getPath() == path) {
                 _container[i].setPath(path);
                 return true;
@@ -109,7 +109,7 @@ namespace fileManager {
         return true;
     }
 
-    void LoadFile::delFile(unsigned int position)
+    void LoadFile::delFile(size_t position)
     {
         _container.erase(_container.begin() + position);
     }
