@@ -15,6 +15,8 @@ namespace fileManager {
 
     bool File::refresh()
     {
+        if (_path.empty())
+            return false;
         return setPath(_path);
     }
 
