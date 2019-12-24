@@ -29,25 +29,13 @@ namespace fileManager {
         return parsingFile();
     }
 
-    std::string &File::getExtension()
-    {
-        return _extension;
-    }
+    std::string &File::getExtension() { return _extension; }
 
-    std::string &File::getName()
-    {
-        return _name;
-    }
+    std::string &File::getName() { return _name; }
 
-    std::string &File::getPath()
-    {
-        return _path;
-    }
+    std::string &File::getPath() { return _path; }
 
-    std::vector<std::string> File::getContent()
-    {
-        return _content;
-    }
+    std::vector<std::string> File::getContent() { return _content; }
 
     void File::cleanRessources()
     {

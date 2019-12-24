@@ -13,10 +13,7 @@ namespace fileManager {
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
 
-    std::vector<File> LoadFile::getAllFile()
-    {
-        return _container;
-    }
+    std::vector<File> LoadFile::getAllFile() { return _container; }
 
     File &LoadFile::getFileByExtension(std::string extension, size_t position)
     {
@@ -87,10 +84,7 @@ namespace fileManager {
         return i;
     }
 
-    File &LoadFile::operator[](size_t position)
-    {
-        return _container.at(position);
-    }
+    File &LoadFile::operator[](size_t position) { return _container.at(position); }
 
     bool LoadFile::addFile(std::string &path)
     {
@@ -109,10 +103,7 @@ namespace fileManager {
         return true;
     }
 
-    void LoadFile::delFile(size_t position)
-    {
-        _container.erase(_container.begin() + position);
-    }
+    void LoadFile::delFile(size_t position) { _container.erase(_container.begin() + position); }
 
     bool LoadFile::load(std::string path)
     {
