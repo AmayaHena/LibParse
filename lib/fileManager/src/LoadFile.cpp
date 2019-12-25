@@ -17,12 +17,10 @@ namespace fileManager {
 
     File &LoadFile::getFileByExtension(std::string extension, size_t position)
     {
-        File f;
-
         for (size_t i = position; i < _container.size(); i++)
             if (_container[i].getExtension() == extension)
                 return _container.at(i);
-        return f;
+        return _error;
     }
 
     std::vector<File> LoadFile::getAFileByExtension(std::string extension)
@@ -37,12 +35,10 @@ namespace fileManager {
 
     File &LoadFile::getFileByName(std::string name, size_t position)
     {
-        File f;
-
         for (size_t i = position; i < _container.size(); i++)
             if (_container[i].getName() == name)
                 return _container.at(i);
-        return f;
+        return _error;
     }
 
     std::vector<File> LoadFile::getAFileByName(std::string name)
