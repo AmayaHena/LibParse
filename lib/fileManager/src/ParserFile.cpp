@@ -11,6 +11,9 @@ namespace fileManager {
 
     std::string ParserFile::cleanLine(std::string s)
     {
+        if (s[s.size() - 1] != ' ')
+            return s;
+
         for (int i = s.size(); i >= 0; i--) {
             if (s[i] == ' ') {
                 s.erase(i);
@@ -27,14 +30,13 @@ namespace fileManager {
         std::string tmp;
 
         for (const std::string &s: v) {
-            if (!v.empty())
+            if (!s.empty())
                 tmp = cleanLine(s);
             if (!s.empty()) {
                 r.push_back(tmp);
                 tmp.clear();
             }
         }
-
         return r;
     }
 
