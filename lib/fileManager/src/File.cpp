@@ -48,12 +48,10 @@ namespace fileManager {
     bool File::loadFile()
     {
         std::fstream f(_path);
-
         if (!f)
             return false;
 
         std::string tmp;
-
         while(std::getline(f, tmp))
             _content.push_back(tmp);
         f.close();

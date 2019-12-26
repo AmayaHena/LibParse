@@ -41,8 +41,6 @@ namespace fileManager {
     std::string ParserFile::find(std::string &s, std::vector<std::string> v, size_t i)
     {
         std::string ec;
-        if (i > v.size())
-            return ec;
 
         while (i < v.size()) {
             if (v[i].find(s, 0) != std::string::npos)

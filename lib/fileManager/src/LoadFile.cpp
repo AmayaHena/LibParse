@@ -59,7 +59,7 @@ namespace fileManager {
         for (File &f : _container)
             if (f.getPath() == path)
                 return f;
-        return _container.at(0);
+        return _error;
     }
 
     size_t LoadFile::getFileNumber() { return _container.size(); }
@@ -88,15 +88,11 @@ namespace fileManager {
 
     bool LoadFile::addFile(std::string &path)
     {
-        for (size_t i = 0; i < _container.size(); i++) {
-            if (_container[i].getPath() == path) {
-                _container[i].setPath(path);
-                return true;
-            }
-        }
+        for (size_t i = 0; i < _container.size(); i++)
+            if (_container[i].getPath() == path)
+                return _container[i].refresh();
 
         File f;
-
         if (!f.setPath(path))
             return false;
         _container.push_back(std::move(f));
