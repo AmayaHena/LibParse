@@ -39,7 +39,7 @@ namespace fileManager {
             size_t getFileNumberWName(std::string name);
 
             /* Overloading Operator */
-            File &operator[](size_t poisition);
+            File &operator[](size_t position);
 
         private:
 
