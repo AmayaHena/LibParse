@@ -17,7 +17,7 @@ namespace fileManager {
     {
         if (_path.empty())
             return false;
-        return setPath(_path);
+        return loadFile();
     }
 
     bool File::setPath(std::string &path)
@@ -39,9 +39,9 @@ namespace fileManager {
 
     void File::cleanRessources()
     {
-        _extension.clear();
-        _name.clear();
         _path.clear();
+        _name.clear();
+        _extension.clear();
         _content.clear();
     }
 
@@ -51,6 +51,7 @@ namespace fileManager {
 
         if (!f)
             return false;
+
         std::string tmp;
 
         while(std::getline(f, tmp))
