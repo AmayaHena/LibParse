@@ -31,11 +31,18 @@ namespace formatParser {
 
         if (v.empty())
             return rez;
-        for (std::string &s : v) {
-            if (s.find("{") == std::string::npos
-            && s.find("}") == std::string::npos
-            && !s.empty())
-                rez.push_back(make_pair(getLValue(s), getRValue(s)));
+        for (size_t i = 0; i < v.size(); i++) {
+            std::string s = getLValue(v[i]);
+
+            if (v[i].find("[") != std::string::npos
+            && v[i].find("]") == std::string::npos)
+                while (v[i++].find("]") == std::string::npos)
+                    rez.push_back(make_pair(s, getRValue(v[i])));
+
+            if (v[i].find("{") == std::string::npos
+            && v[i].find("}") == std::string::npos
+            && !v[i].empty())
+                rez.push_back(make_pair(s, getRValue(v[i])));
         }
         return rez;
     }
@@ -54,6 +61,7 @@ namespace formatParser {
                 break;
         /* WARNING */
         /* ne parse une seule section et stop au premier { */
+        /* compter le nomre de { = +1 & } = -1 */
         /* WARNING */
         while (v[i++].find("}") != std::string::npos || i < v.size())
             rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
@@ -68,7 +76,7 @@ namespace formatParser {
         if (v.empty() || match.empty())
             return rez;
         for (const std::string &s : v)
-            if (s.find("\"" + match + "\"") != std::string::npos)
+            if (s.find("\"" + match + "\" : ") != std::string::npos)
                 return getRValue(s);
         return rez;
     }
