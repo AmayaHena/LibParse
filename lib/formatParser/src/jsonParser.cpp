@@ -59,13 +59,27 @@ namespace formatParser {
         while (i < v.size())
             if (v[i++].find("\"" + match + "\": {") != std::string::npos)
                 break;
-        /* WARNING */
-        /* ne parse une seule section et stop au premier { */
-        /* compter le nomre de { = +1 & } = -1 */
-        /* WARNING */
-        while (v[i++].find("}") != std::string::npos || i < v.size())
-            rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
-        /* WARNING */
+        if (i == v.size())
+            return rez;
+
+        for (size_t j = 1; j > 0; i++) {
+            std::string s = getLValue(v[i]);
+
+            if (v[i].find("{") != std::string::npos)
+                j++;
+            if (v[i].find("}") != std::string::npos)
+                j--;
+
+            if (v[i].find("[") != std::string::npos
+            && v[i].find("]") == std::string::npos)
+                while (v[i++].find("]") == std::string::npos)
+                    rez.push_back(make_pair(s, getRValue(v[i])));
+
+            if (v[i].find("{") == std::string::npos
+            && v[i].find("}") == std::string::npos
+            && !v[i].empty())
+                rez.push_back(make_pair(s, getRValue(v[i])));
+        }
         return rez;
     }
 
