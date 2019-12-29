@@ -15,4 +15,5 @@ target_include_directories(LibParse
     PUBLIC lib/fileManager/inc/
     PUBLIC lib/typeConv/inc/
     PUBLIC lib/formatParser/inc/
+    PUBLIC lib/typeConv/inc
 )
