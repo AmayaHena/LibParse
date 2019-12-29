@@ -90,7 +90,7 @@ namespace formatParser {
         if (v.empty() || match.empty())
             return rez;
         for (const std::string &s : v)
-            if (s.find("\"" + match + "\" : ") != std::string::npos)
+            if (s.find("\"" + match + "\"") != std::string::npos)
                 return getRValue(s);
         return rez;
     }
