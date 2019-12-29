@@ -8,13 +8,16 @@
 #ifndef BASICCONV_HPP_
 #define BASICCONV_HPP_
 
+#include <iostream>
+#include <vector>
+
 namespace typeConv {
 
     class basicConv {
 
         public:
 
-        private:
+            std::string vToS(std::vector<std::string> v);
 
     };
 }
