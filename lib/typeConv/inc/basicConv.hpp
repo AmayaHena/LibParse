@@ -8,8 +8,8 @@
 #ifndef BASICCONV_HPP_
 #define BASICCONV_HPP_
 
-#include <iostream>
-#include <vector>
+    #include <iostream>
+    #include <vector>
 
 namespace typeConv {
 
@@ -17,7 +17,7 @@ namespace typeConv {
 
         public:
 
-            std::string vToS(std::vector<std::string> v);
+            std::string &vToS(std::vector<std::string> v);
 
     };
 }
