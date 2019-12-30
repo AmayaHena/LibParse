@@ -12,7 +12,7 @@
 
 namespace typeConv {
 
-    std::string &basicConv::vToS(std::vector<std::string> v)
+    std::string basicConv::vToS(std::vector<std::string> v)
     {
         std::string s;
 
