@@ -9,7 +9,7 @@ Lib progress :
 - fileManager : Done
 - formatParser JSON : Done (writing doc)
 - formatParser XML : In developpement
-- typeConv : In developpement
+- typeConv : Done (but idk what to do)
 
 
 To build the project, cmake is required.
