@@ -7,7 +7,7 @@ I'll try to update often
 Lib progress :
 
 - fileManager : Done
-- formatParser JSON : Done (writing doc)
+- formatParser JSON : Done
 - formatParser XML : In developpement
 - typeConv : Done (but idk what to do)
 
