@@ -18,21 +18,28 @@ namespace formatParser {
 
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v, std::string match) { return parseS(v, match); }
 
-    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") + 1, s.find("<", s.find("<") + 1) - s.find_first_of("<") - 1); }
+    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
 
     std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
     {
         std::string s;
+        int j = v[i].find_first_of(">");
 
         if (v[i].find("</") != std::string::npos) {
-            // bad
-            s = v[i].substr(v[i].find_first_of(">"), v[i].find_last_of("</"));
+            /* while(v[i][j++] != '<')
+                s += v[i][j++]; */
+            s = v[i].substr(v[i].find_first_of(">") +1, v[i].find_last_of("<") - v[i].find_first_of(">") -1);
         } else {
-            // bad
-            s += v[i].substr(v[i].find_first_of(">"), v[i].size() - 1);
+            while (v[i][j++])
+                s += v[i][j++];
+            while (v[i++].find("</") == std::string::npos)
+                s += v[i][j++];
+            while(v[i][j++] != '<')
+                s += v[i][j++];
+            /* s += v[i].substr(v[i].find_first_of(">"), v[i].size() - 1);
             while (v[i++].find("</") == std::string::npos)
                 s += v[i];
-            s += v[i].substr(0, v[i].find_first_of("<"));
+            s += v[i].substr(0, v[i].find_first_of("<")); */
         }
 
         return s;
