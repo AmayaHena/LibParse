@@ -26,10 +26,9 @@ namespace formatParser {
         int j = v[i].find_first_of(">");
 
         if (v[i].find("</") != std::string::npos) {
-            /* while(v[i][j++] != '<')
-                s += v[i][j++]; */
             s = v[i].substr(v[i].find_first_of(">") +1, v[i].find_last_of("<") - v[i].find_first_of(">") -1);
         } else {
+            // WIP
             while (v[i][j++])
                 s += v[i][j++];
             while (v[i++].find("</") == std::string::npos)
