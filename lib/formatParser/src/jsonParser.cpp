@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2019
+** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
 ** jsonParser
