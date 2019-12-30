@@ -18,27 +18,27 @@ namespace formatParser {
 
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v, std::string match) { return parseS(v, match); }
 
-    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
+    std::string xmlParser::getLValue(std::string s) { 
+        //std::cout << "s : " << s << std::endl;
+        return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
 
     std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
     {
         std::string s;
-        int j = v[i].find_first_of(">");
 
         if (v[i].find("</") != std::string::npos) {
-            s = v[i].substr(v[i].find_first_of(">") +1, v[i].find_last_of("<") - v[i].find_first_of(">") -1);
+            return v[i].substr(v[i].find_first_of(">") +1, v[i].find_last_of("<") - v[i].find_first_of(">") -1);
         } else {
+            s += v[i].substr(v[i].find_first_of(">") +1, v[i].size() - 1);
+            if (v[i + 1].find("</") != std::string::npos) {
+                std::cout << "!!! CASE 1 !!!" << std::endl;
+                s += v[i + 1].substr(0, v[i + 1].find("</"));
+                return s;
+            }
             // WIP
-            while (v[i][j++])
-                s += v[i][j++];
-            while (v[i++].find("</") == std::string::npos)
-                s += v[i][j++];
-            while(v[i][j++] != '<')
-                s += v[i][j++];
-            /* s += v[i].substr(v[i].find_first_of(">"), v[i].size() - 1);
+            std::cout << "!!! CASE 2 !!!" << std::endl;
             while (v[i++].find("</") == std::string::npos)
                 s += v[i];
-            s += v[i].substr(0, v[i].find_first_of("<")); */
         }
 
         return s;
@@ -52,8 +52,13 @@ namespace formatParser {
             return rez;
 
         for (size_t i = 0; i < v.size(); i++) {
+            std::cout << "v[" << i << "] : " << v[i] << std::endl;
             rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
-            while (v[i++].find("</") == std::string::npos);
+            // FULL BUG
+            if (v[i].find("</") == std::string::npos) {
+                while (v[i++].find("</") == std::string::npos);
+                i--;
+            }
         }
         return rez;
     }
