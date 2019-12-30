@@ -32,6 +32,10 @@ namespace formatParser {
             std::string parseOne(fileManager::File f, std::string match);
             std::string parseOne(std::vector<std::string> v, std::string match);
 
+            /* Get all section name */
+            std::vector<std::string> getSection(fileManager::File f);
+            std::vector<std::string> getSection(std::vector<std::string> v);
+
         private:
 
             /* JSON Parsing Tools */
@@ -42,6 +46,9 @@ namespace formatParser {
             std::vector<std::pair<std::string, std::string>> parseAD(std::vector<std::string> v);
             std::vector<std::pair<std::string, std::string>> parseS(std::vector<std::string> v, std::string match);
             std::string parseO(std::vector<std::string> v, std::string match);
+
+            /* Get Section Name */
+            std::vector<std::string> getSName(std::vector<std::string> v);
 
     };
 

@@ -21,6 +21,10 @@ namespace formatParser {
 
     std::string jsonParser::parseOne(std::vector<std::string> v, std::string match) { return parseO(v, match); }
 
+    std::vector<std::string> jsonParser::getSection(fileManager::File f) { return getSName(f.getContent()); }
+
+    std::vector<std::string> jsonParser::getSection(std::vector<std::string> v) { return getSName(v); }
+
     std::string jsonParser::getLValue(std::string s) { return s.substr(s.find_first_of("\"") + 1, s.find("\"", s.find("\"") + 1) - s.find_first_of("\"") - 1); }
 
     std::string jsonParser::getRValue(std::string s) { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
@@ -92,6 +96,20 @@ namespace formatParser {
         for (const std::string &s : v)
             if (s.find("\"" + match + "\"") != std::string::npos)
                 return getRValue(s);
+        return rez;
+    }
+
+    std::vector<std::string> jsonParser::getSName(std::vector<std::string> v)
+    {
+        std::vector<std::string> rez;
+
+        if (v.empty())
+            return rez;
+        for (const std::string &s : v)
+            if (s.find("{") != std::string::npos
+            && s.size() > 1)
+                rez.push_back(getLValue(s));
+
         return rez;
     }
 
