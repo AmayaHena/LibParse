@@ -25,10 +25,10 @@ namespace formatParser {
         std::string s;
 
         if (v[i].find("</") != std::string::npos) {
-            // a revoir
+            // bad
             s = v[i].substr(v[i].find_first_of(">"), v[i].find_last_of("</"));
         } else {
-            // a revoir
+            // bad
             s += v[i].substr(v[i].find_first_of(">"), v[i].size() - 1);
             while (v[i++].find("</") == std::string::npos)
                 s += v[i];
@@ -55,8 +55,18 @@ namespace formatParser {
     std::vector<std::pair<std::string, std::string>> xmlParser::parseS(std::vector<std::string> v, std::string match)
     {
         std::vector<std::pair<std::string, std::string>> rez;
-        (void)v;
-        (void)match;
+
+        if (v.empty())
+            return rez;
+
+        size_t i = 0;
+
+        while (v[i++].find("<" + match) == std::string::npos);
+
+        while (i < v.size() || v[i++].find("</" + match + ">") == std::string::npos) {
+            rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
+            while (v[i++].find("</") == std::string::npos);
+        }
         return rez;
     }
 
