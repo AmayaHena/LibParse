@@ -18,10 +18,37 @@ namespace formatParser {
 
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v, std::string match) { return parseS(v, match); }
 
+    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") + 1, s.find("<", s.find("<") + 1) - s.find_first_of("<") - 1); }
+
+    std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
+    {
+        std::string s;
+
+        if (v[i].find("</") != std::string::npos) {
+            // a revoir
+            s = v[i].substr(v[i].find_first_of(">"), v[i].find_last_of("</"));
+        } else {
+            // a revoir
+            s += v[i].substr(v[i].find_first_of(">"), v[i].size() - 1);
+            while (v[i++].find("</") == std::string::npos)
+                s += v[i];
+            s += v[i].substr(0, v[i].find_first_of("<"));
+        }
+
+        return s;
+    }
+
     std::vector<std::pair<std::string, std::string>> xmlParser::parseAD(std::vector<std::string> v)
     {
         std::vector<std::pair<std::string, std::string>> rez;
-        (void)v;
+
+        if (v.empty())
+            return rez;
+
+        for (size_t i = 0; i < v.size(); i++) {
+            rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
+            while (v[i++].find("</") == std::string::npos);
+        }
         return rez;
     }
 
