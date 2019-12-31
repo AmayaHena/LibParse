@@ -8,7 +8,7 @@ Lib progress :
 
 - fileManager : Done
 - formatParser JSON : Done
-- formatParser XML : Done (WARNING : very basic)
+- formatParser XML : Done (Writing Doc / WARNING : very basic)
 - typeConv : Done (but idk what to do)
 
 
