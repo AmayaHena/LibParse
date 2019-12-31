@@ -18,9 +18,7 @@ namespace formatParser {
 
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v, std::string match) { return parseS(v, match); }
 
-    std::string xmlParser::getLValue(std::string s) { 
-        //std::cout << "s : " << s << std::endl;
-        return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
+    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
 
     std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
     {
@@ -31,14 +29,14 @@ namespace formatParser {
         } else {
             s += v[i].substr(v[i].find_first_of(">") +1, v[i].size() - 1);
             if (v[i + 1].find("</") != std::string::npos) {
-                std::cout << "!!! CASE 1 !!!" << std::endl;
                 s += v[i + 1].substr(0, v[i + 1].find("</"));
                 return s;
             }
-            // WIP
-            std::cout << "!!! CASE 2 !!!" << std::endl;
-            while (v[i++].find("</") == std::string::npos)
+            while (v[i++].find("</") == std::string::npos) {
+                if (v[i].find("</") != std::string::npos)
+                    break;
                 s += v[i];
+            }
         }
 
         return s;
@@ -52,12 +50,12 @@ namespace formatParser {
             return rez;
 
         for (size_t i = 0; i < v.size(); i++) {
-            std::cout << "v[" << i << "] : " << v[i] << std::endl;
-            rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
-            // FULL BUG
-            if (v[i].find("</") == std::string::npos) {
-                while (v[i++].find("</") == std::string::npos);
-                i--;
+            if (!v[i].empty()) {
+                rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
+                if (v[i].find("</") == std::string::npos) {
+                    while (v[i++].find("</") == std::string::npos);
+                    i--;
+                }
             }
         }
         return rez;
@@ -75,8 +73,13 @@ namespace formatParser {
         while (v[i++].find("<" + match) == std::string::npos);
 
         while (i < v.size() || v[i++].find("</" + match + ">") == std::string::npos) {
-            rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
-            while (v[i++].find("</") == std::string::npos);
+            if (!v[i].empty()) {
+                rez.push_back(make_pair(getLValue(v[i]), getRValue(v, i)));
+                if (v[i].find("</") == std::string::npos) {
+                    while (v[i++].find("</") == std::string::npos);
+                    i--;
+                }
+            }
         }
         return rez;
     }
