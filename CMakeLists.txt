@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
-project(LibParse VERSION 0.1 DESCRIPTION "LibParse description")
+project(Nyx VERSION 0.1 DESCRIPTION "Nyx description")
 
 SET(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Werror")
 
-add_library(LibParse SHARED
+add_library(Nyx SHARED
     lib/fileManager/src/LoadFile.cpp
     lib/fileManager/src/File.cpp
     lib/fileManager/src/ParserFile.cpp
@@ -11,7 +11,7 @@ add_library(LibParse SHARED
     lib/formatParser/src/jsonParser.cpp
     lib/formatParser/src/xmlParser.cpp
 )
-target_include_directories(LibParse
+target_include_directories(Nyx
     PUBLIC lib/fileManager/inc/
     PUBLIC lib/typeConv/inc/
     PUBLIC lib/formatParser/inc/
