@@ -44,13 +44,10 @@ namespace fileManager {
     std::vector<File> LoadFile::getAFileByName(std::string name)
     {
         std::vector<File> v;
-        size_t i = 0;
 
-        for (File &f : _container) {
+        for (File &f : _container)
             if (f.getName() == name)
-                v.push_back(_container.at(i));
-            i++;
-        }
+                v.push_back(f);
         return v;
     }
 

@@ -14,7 +14,7 @@ namespace formatParser {
 
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v) { return parseAD(v); }
 
-    std::string xmlParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
+    std::string xmlParser::getLValue(std::string &s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
 
     std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
     {

@@ -24,9 +24,9 @@ namespace fileManager {
             std::vector<std::string> cleanContent(std::vector<std::string> v);
 
             /* Scearch Tool */
-            std::string findStr(std::string s, File f, size_t i = 0);
+            std::string findStr(std::string s, File &f, size_t i = 0);
             std::string findStr(std::string s, std::vector<std::string> v, size_t i = 0);
-            std::vector<std::string> findAStr(std::string s, File f);
+            std::vector<std::string> findAStr(std::string s, File &f);
             std::vector<std::string> findAStr(std::string s, std::vector<std::string> v);
 
         private:

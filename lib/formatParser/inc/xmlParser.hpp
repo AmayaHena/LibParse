@@ -26,7 +26,7 @@ namespace formatParser {
         private:
 
         /* Parsing tools */
-        std::string getLValue(std::string s);
+        std::string getLValue(std::string &s);
         std::string getRValue(std::vector<std::string> v, size_t i);
 
         /* XML Parsing Core */

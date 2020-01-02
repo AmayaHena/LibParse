@@ -63,7 +63,8 @@ namespace fileManager {
         std::size_t point = _path.find(".");
         std::size_t slash = _path.find("/");
 
-        if (slash == std::string::npos && point == std::string::npos) {
+        if (slash == std::string::npos
+        && point == std::string::npos) {
             _name = _path;
             _extension.clear();
             return true;
@@ -74,7 +75,8 @@ namespace fileManager {
         else
             _extension = nullptr;
 
-        if (point != std::string::npos && slash == std::string::npos) {
+        if (point != std::string::npos
+        && slash == std::string::npos) {
             _name = _path.substr(0, point);
             return true;
         }

@@ -66,11 +66,11 @@ namespace fileManager {
 
     std::vector<std::string> ParserFile::cleanContent(std::vector<std::string> v) { return cleanVector(v); }
 
-    std::string ParserFile::findStr(std::string s, File f, size_t i) { return find(s, f.getContent(), i); }
+    std::string ParserFile::findStr(std::string s, File &f, size_t i) { return find(s, f.getContent(), i); }
 
     std::string ParserFile::findStr(std::string s, std::vector<std::string> v, size_t i) { return find(s, v, i); }
 
-    std::vector<std::string> ParserFile::findAStr(std::string s, File f) { return findA(s, f.getContent()); }
+    std::vector<std::string> ParserFile::findAStr(std::string s, File &f) { return findA(s, f.getContent()); }
 
     std::vector<std::string> ParserFile::findAStr(std::string s, std::vector<std::string> v) { return findA(s, v); }
 
