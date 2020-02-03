@@ -7,4 +7,4 @@ stty onlcr
 if [ ! -d "./build" ]; then
     mkdir build
 fi
-cd build && cmake .. -G "Unix Makefiles" && cmake --build .
+cd build && cmake .. -G "Unix Makefiles" && cmake --build . && mv libNyx.so ..
