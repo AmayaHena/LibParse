@@ -21,4 +21,14 @@ namespace typeConv {
         return s;
     }
 
+    std::vector<std::string> basicConv::sToV(std::string s)
+    {
+        std::stringstream sstream(s);
+        std::istream_iterator<std::string> begin(sstream);
+        std::istream_iterator<std::string> end;
+        std::vector<std::string> vstrings(begin, end);
+
+        return vstrings;
+    }
+
 }

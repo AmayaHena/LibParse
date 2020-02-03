@@ -18,6 +18,7 @@ namespace typeConv {
         public:
 
             std::string vToS(std::vector<std::string> v);
+            std::vector<std::string> sToV(std::string s);
 
     };
 }
