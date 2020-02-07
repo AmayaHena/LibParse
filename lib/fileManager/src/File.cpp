@@ -70,6 +70,13 @@ namespace fileManager {
             return true;
         }
 
+        if (slash != std::string::npos
+        && point == std::string::npos) {
+            _name = _path.substr(_path.find_last_of("/") + 1, _path.size());
+            _extension.clear();
+            return true;
+        }
+
         if (point != std::string::npos)
             _extension = _path.substr(point, _path.length());
         else
