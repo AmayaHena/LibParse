@@ -8,7 +8,7 @@
 #ifndef PARSER_HPP_
 #define PARSER_HPP_
 
-    #include "LoadFile.hpp"
+    #include "File.hpp"
 
 namespace fileManager {
 
@@ -28,6 +28,7 @@ namespace fileManager {
             std::string findStr(std::string s, std::vector<std::string> v, size_t i = 0);
             std::vector<std::string> findAStr(std::string s, File &f);
             std::vector<std::string> findAStr(std::string s, std::vector<std::string> v);
+            std::vector<std::string> findAStr(std::string s, std::vector<File> v);
 
         private:
 

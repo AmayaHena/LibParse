@@ -74,4 +74,15 @@ namespace fileManager {
 
     std::vector<std::string> ParserFile::findAStr(std::string s, std::vector<std::string> v) { return findA(s, v); }
 
+    std::vector<std::string> ParserFile::findAStr(std::string s, std::vector<File> v)
+    {
+        std::vector<std::string> r;
+
+        for (File f: v)
+            for (const std::string &s_tmp: findA(s, f.getContent()))
+                r.push_back(s_tmp);
+
+        return r;
+    }
+
 }
