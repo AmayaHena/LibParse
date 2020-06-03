@@ -5,8 +5,7 @@
 ** ParserFILE
 */
 
-#ifndef PARSER_HPP_
-#define PARSER_HPP_
+#pragma once
 
     #include "File.hpp"
 
@@ -41,5 +40,3 @@ namespace fileManager {
     };
 
 }
-
-#endif /* !PARSERFILE_HPP_ */

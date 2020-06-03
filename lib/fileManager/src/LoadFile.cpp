@@ -9,9 +9,28 @@
 
 namespace fileManager {
 
+    /* PUBLIC METHOD */
+
     LoadFile::LoadFile(std::string path) { load(path); }
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
+
+    bool LoadFile::load(std::string path)
+    {
+        if (!addFile(path))
+            return false;
+        return true;
+    }
+
+    bool LoadFile::load(std::vector<std::string> path)
+    {
+        for (std::string &s : path)
+            if (!addFile(s))
+                return false;
+        return true;
+    }
+
+    void LoadFile::delFile(size_t position) { _container.erase(_container.begin() + position); }
 
     std::vector<File> LoadFile::getAllFile() { return _container; }
 
@@ -83,6 +102,8 @@ namespace fileManager {
 
     File &LoadFile::operator[](size_t position) { return _container.at(position); }
 
+    /* PRIVATE METHOD */
+
     bool LoadFile::addFile(std::string &path)
     {
         for (size_t i = 0; i < _container.size(); i++)
@@ -93,23 +114,6 @@ namespace fileManager {
         if (!f.setPath(path))
             return false;
         _container.push_back(std::move(f));
-        return true;
-    }
-
-    void LoadFile::delFile(size_t position) { _container.erase(_container.begin() + position); }
-
-    bool LoadFile::load(std::string path)
-    {
-        if (!addFile(path))
-            return false;
-        return true;
-    }
-
-    bool LoadFile::load(std::vector<std::string> path)
-    {
-        for (std::string &s : path)
-            if (!addFile(s))
-                return false;
         return true;
     }
 

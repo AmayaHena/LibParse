@@ -5,8 +5,7 @@
 ** File
 */
 
-#ifndef File_HPP_
-#define File_HPP_
+#pragma once
 
     #include <iostream>
     #include <vector>
@@ -38,6 +37,8 @@ namespace fileManager {
             bool parseInfo();
             bool parsingFile();
 
+        private:
+
             std::string _extension;
             std::string _name;
             std::string _path;
@@ -46,5 +47,3 @@ namespace fileManager {
     };
 
 }
-
-#endif /* File_HPP_ */

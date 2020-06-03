@@ -5,8 +5,7 @@
 ** jsonParser
 */
 
-#ifndef JSONPARSER_HPP_
-#define JSONPARSER_HPP_
+#pragma once
 
     #include "File.hpp"
 
@@ -52,5 +51,3 @@ namespace formatParser {
     };
 
 }
-
-#endif /* !JSONPARSER_HPP_ */

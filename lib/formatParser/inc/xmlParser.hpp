@@ -5,8 +5,7 @@
 ** xmlParser
 */
 
-#ifndef XMLPARSER_HPP_
-#define XMLPARSER_HPP_
+#pragma once
 
     #include "File.hpp"
 
@@ -35,5 +34,3 @@ namespace formatParser {
     };
 
 }
-
-#endif /* !XMLPARSER_HPP_ */

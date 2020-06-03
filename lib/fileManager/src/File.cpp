@@ -11,6 +11,8 @@
 
 namespace fileManager {
 
+    /* PUBLIC METHODS */
+
     File::File(std::string &path) : _path(path) { parsingFile(); }
 
     bool File::refresh()
@@ -36,6 +38,8 @@ namespace fileManager {
     std::string &File::getPath() { return _path; }
 
     std::vector<std::string> File::getContent() { return _content; }
+
+    /* PRIVATE METHODS */
 
     void File::cleanRessources()
     {

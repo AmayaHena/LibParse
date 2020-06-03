@@ -5,8 +5,7 @@
 ** LoadFile
 */
 
-#ifndef LoadFile_HPP_
-#define LoadFile_HPP_
+#pragma once
 
     #include "File.hpp"
 
@@ -46,11 +45,11 @@ namespace fileManager {
             /* Tools add & del */
             bool addFile(std::string &path);
 
+        private:
+
             std::vector<File> _container;
             File _error;
 
     };
 
 }
-
-#endif /* LoadFile_HPP_ */

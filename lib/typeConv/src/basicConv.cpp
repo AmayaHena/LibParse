@@ -12,6 +12,8 @@
 
 namespace typeConv {
 
+    /* PUBLIC METHODS */
+
     std::string basicConv::vToS(std::vector<std::string> &v)
     {
         std::string s;

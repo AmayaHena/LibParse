@@ -5,8 +5,7 @@
 ** basicConv
 */
 
-#ifndef BASICCONV_HPP_
-#define BASICCONV_HPP_
+#pragma once
 
     #include <iostream>
     #include <vector>
@@ -21,6 +20,5 @@ namespace typeConv {
             std::vector<std::string> sToV(const std::string &s, char c = ' ');
 
     };
-}
 
-#endif /* !BASICCONV_HPP_ */
+}
