@@ -23,7 +23,7 @@ To build the project, cmake is required.
 
 You can use the script :
 ```
-chmod 755 build.sh && ./build.sh
+./build.sh
 ```
 
 You can also do the manual command line :
