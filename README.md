@@ -1,7 +1,6 @@
-
-<img src="https://cdn.discordapp.com/attachments/720364464595140628/720364488674639913/NYX-sans_fond.png" width="550">
-
-![](https://cdn.discordapp.com/attachments/720364464595140628/720364488674639913/NYX-sans_fond.png)
+<p align="center">
+    <img src="https://cdn.discordapp.com/attachments/720364464595140628/720364488674639913/NYX-sans_fond.png" width="550">
+</p>
 
 A try to make an easy and useful lib to parse things
 
