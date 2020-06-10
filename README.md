@@ -5,7 +5,6 @@
 A try to make an easy and useful lib to parse things
 
 I'll try to update often
-(Full code rework incoming)
 
 You can find documentation in Wiki section, on github repo
 
@@ -14,12 +13,11 @@ You can find documentation in Wiki section, on github repo
 
 ---
 
-Lib contains :
+Nyx contains :
 
-- fileManager
-- formatParser JSON
-- formatParser XML
-- typeConv
+- fileManager (Gestion & Parsing of File(s))
+- formatParser (Parsing of JSON & XML)
+- typeConv (Stupid conversion, usefull for parsing)
 
 ---
 
