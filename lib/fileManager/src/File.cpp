@@ -17,6 +17,7 @@ namespace fileManager {
 
     bool File::refresh()
     {
+        _content.clear();
         if (_path.empty())
             return false;
         return loadFile();
