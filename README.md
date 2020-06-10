@@ -1,7 +1,10 @@
-# Nyx
+
+![](https://cdn.discordapp.com/attachments/720364464595140628/720364488674639913/NYX-sans_fond.png)
+
 A try to make an easy and useful lib to parse things
 
 I'll try to update often
+(Full code rework incoming)
 
 You can find documentation in Wiki section, on github repo
 
@@ -10,12 +13,12 @@ You can find documentation in Wiki section, on github repo
 
 ---
 
-Lib progress :
+Lib contains :
 
-- fileManager : Done
-- formatParser JSON : Done
-- formatParser XML : Done
-- typeConv : Done
+- fileManager
+- formatParser JSON
+- formatParser XML
+- typeConv
 
 ---
 
