@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://cdn.discordapp.com/attachments/720364464595140628/720364488674639913/NYX-sans_fond.png" width="550">
+    <img src="https://github.com/AmayaHena/Nyx/blob/master/images/nyx_logo.png" width="550">
 </p>
 
 A try to make an easy and useful lib to parse things
@@ -8,7 +8,7 @@ I'll try to update often
 
 You can find documentation in Wiki section, on github repo
 
-![](https://cdn.discordapp.com/attachments/644106345397747713/659607495203094579/ezgif-6-c03758c6900b.gif)
+![](https://github.com/AmayaHena/Nyx/blob/master/images/example_code.gif)
 
 
 ---
