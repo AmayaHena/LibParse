@@ -2,6 +2,12 @@
     <img src="https://github.com/AmayaHena/Nyx/blob/master/images/nyx_logo.png" width="550">
 </p>
 
+---
+
+I am currently reworking this lib to make something cleaner, I'll change some features
+
+---
+
 A try to make an easy and useful lib to parse things
 
 I'll try to update often
