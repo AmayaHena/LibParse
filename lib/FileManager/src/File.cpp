@@ -52,6 +52,7 @@ namespace FileManager {
         if (!isFile())
             return false;
         parseExt(_path);
+        parseName(_path);
         return true;
     }
 
@@ -61,6 +62,31 @@ namespace FileManager {
         if (!f)
             return false;
         return true;
+    }
+
+    size_t File::getLength(std::string &s)
+    {
+        size_t p = s.find_last_of("/") + 1;
+
+        for (size_t n = p; s[p]; n++)
+            if (s[n] == '.')
+                return n - p;
+        return p;
+    }
+
+    void File::parseName(std::string s)
+    {
+        if (s.find(".") == std::string::npos
+        && s.find("/") == std::string::npos)
+            _name = s;
+
+        if (s.find(".") != std::string::npos) {
+            if (s.find("/") == std::string::npos)
+                _name = s.substr(0, s.find_last_of("."));
+            else
+                _name =  s.substr(s.find_last_of("/") + 1, getLength(s));
+        }
+        _name = s.substr(s.find_last_of("/") + 1, s.size());
     }
 
     void File::parseExt(std::string s)
