@@ -20,8 +20,7 @@ namespace fileManager {
             File(std::string &path);
             ~File() noexcept;
 
-            /* Reload */
-            bool refresh(); /* to del */
+            /* Change path */
             bool setPath(std::string &path);
 
             /* Getters */

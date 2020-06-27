@@ -106,9 +106,9 @@ namespace fileManager {
 
     bool LoadFile::addFile(std::string &path)
     {
-        for (size_t i = 0; i < _container.size(); i++)
+/*         for (size_t i = 0; i < _container.size(); i++)
             if (_container[i].getPath() == path)
-                return _container[i].refresh();
+                return _container[i].refresh(); */
 
         File f;
         if (!f.setPath(path))

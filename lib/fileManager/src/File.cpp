@@ -16,8 +16,6 @@ namespace fileManager {
 
     File::File(std::string &path) : _path(path) { load(); }
 
-    bool File::refresh() { return isFile(); } // to del
-
     bool File::setPath(std::string &path)
     {
         if (path.empty())
