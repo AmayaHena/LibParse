@@ -4,14 +4,14 @@ project(Nyx VERSION 0.1 DESCRIPTION "Nyx description")
 SET(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Werror")
 
 add_library(Nyx SHARED
-    lib/fileManager/src/LoadFile.cpp
-    lib/fileManager/src/File.cpp
-    lib/fileManager/src/ParserFile.cpp
-    lib/formatParser/src/jsonParser.cpp
-    lib/formatParser/src/xmlParser.cpp
+    lib/FileManager/src/LoadFile.cpp
+    lib/FileManager/src/File.cpp
+    lib/FileManager/src/ParserFile.cpp
+    lib/FormatParser/src/jsonParser.cpp
+    lib/FormatParser/src/xmlParser.cpp
 )
+
 target_include_directories(Nyx
-    PUBLIC lib/fileManager/inc/
-    PUBLIC lib/typeConv/inc/
-    PUBLIC lib/formatParser/inc/
+    PUBLIC lib/FileManager/inc/
+    PUBLIC lib/FormatParser/inc/
 )
