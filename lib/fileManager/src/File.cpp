@@ -8,20 +8,15 @@
 #include "File.hpp"
 
 #include <fstream>
+#include <bits/stdc++.h>
 
 namespace fileManager {
 
     /* PUBLIC METHODS */
 
-    File::File(std::string &path) : _path(path) { parsingFile(); }
+    File::File(std::string &path) : _path(path) { load(); }
 
-    bool File::refresh()
-    {
-        _content.clear();
-        if (_path.empty())
-            return false;
-        return loadFile();
-    }
+    bool File::refresh() { return isFile(); } // to del
 
     bool File::setPath(std::string &path)
     {
@@ -29,85 +24,64 @@ namespace fileManager {
             return false;
         cleanRessources();
         _path = path;
-        return parsingFile();
+        return load();
     }
 
-    std::string &File::getExtension() { return _extension; }
+    std::string &File::getExtension() { return _ext; }
 
     std::string &File::getName() { return _name; }
 
     std::string &File::getPath() { return _path; }
 
-    std::vector<std::string> File::getContent() { return _content; }
+    std::vector<std::string> File::getContent()
+    {
+        std::vector<std::string> cont;
+        std::fstream f(_path);
+        if (!f)
+            return cont;
+
+        std::string tmp;
+        while(std::getline(f, tmp))
+            cont.push_back(tmp);
+        f.close();
+        return cont;
+    }
 
     /* PRIVATE METHODS */
+
+    bool File::load()
+    {
+        if (!isFile())
+            return false;
+        parseExt(_path);
+        return true;
+    }
+
+    bool File::isFile()
+    {
+        std::fstream f(_path);
+        if (!f)
+            return false;
+        return true;
+    }
+
+    void File::parseExt(std::string s)
+    {
+        if (s.find(".") == std::string::npos)
+            _ext.clear();
+
+        std::reverse(s.begin(), s.end());
+
+        s = s.substr(0, s.find_first_of("."));
+        std::reverse(s.begin(), s.end());
+        _ext = s;
+    }
 
     void File::cleanRessources()
     {
         _path.clear();
         _name.clear();
-        _extension.clear();
-        _content.clear();
-    }
-
-    bool File::loadFile()
-    {
-        std::fstream f(_path);
-        if (!f)
-            return false;
-
-        std::string tmp;
-        while(std::getline(f, tmp))
-            _content.push_back(tmp);
-        f.close();
-        return true;
-    }
-
-    bool File::parseInfo()
-    {
-        std::size_t point = _path.find(".");
-        std::size_t slash = _path.find("/");
-
-        if (slash == std::string::npos
-        && point == std::string::npos) {
-            _name = _path;
-            _extension.clear();
-            return true;
-        }
-
-        if (slash != std::string::npos
-        && point == std::string::npos) {
-            _name = _path.substr(_path.find_last_of("/") + 1, _path.size());
-            _extension.clear();
-            return true;
-        }
-
-        if (point != std::string::npos)
-            _extension = _path.substr(point, _path.length());
-        else
-            _extension = nullptr;
-
-        if (point != std::string::npos
-        && slash == std::string::npos) {
-            _name = _path.substr(0, point);
-            return true;
-        }
-
-        for (slash = _path.length(); _path[slash] != '/'; slash--);
-        for (point = _path.length(); _path[point] != '.'; point--);
-        _name = _path.substr(slash + 1, point - slash - 1);
-        _extension = _path.substr(point, _path.length());
-        if (_extension[1] == '/')
-            _extension.clear();
-        return true;
-    }
-
-    bool File::parsingFile()
-    {
-        if (!loadFile())
-            return false;
-        parseInfo();
-        return true;
+        _ext.clear();
     }
 
 }

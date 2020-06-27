@@ -21,7 +21,7 @@ namespace fileManager {
             ~File() noexcept;
 
             /* Reload */
-            bool refresh();
+            bool refresh(); /* to del */
             bool setPath(std::string &path);
 
             /* Getters */
@@ -33,17 +33,16 @@ namespace fileManager {
         private:
 
             /* Parsing */
+            bool load();
+            bool isFile();
+            void parseExt(std::string s);
             void cleanRessources();
-            bool loadFile();
-            bool parseInfo();
-            bool parsingFile();
 
         private:
 
-            std::string _extension;
+            std::string _ext;
             std::string _name;
             std::string _path;
-            std::vector<std::string> _content;
 
     };
 
