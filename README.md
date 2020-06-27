@@ -16,18 +16,9 @@ You can find documentation in Wiki section, on github repo
 
 ![](https://github.com/AmayaHena/Nyx/blob/master/images/example_code.gif)
 
-
 ---
 
-Nyx contains :
-
-- fileManager (Gestion & Parsing of File(s))
-- formatParser (Parsing of JSON & XML)
-- typeConv (Stupid conversion, usefull for parsing)
-
----
-
-To build the project, cmake is required.
+To build the project, CMake is required.
 
 You can use the script :
 ```
@@ -38,7 +29,3 @@ You can also do the manual command line :
 ```
 mkdir build && cd build && cmake .. && make
 ```
-
----
-
-I hope that will help you or accelerate your productivity.
