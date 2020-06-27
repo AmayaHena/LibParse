@@ -7,7 +7,7 @@
 
 #include "jsonParser.hpp"
 
-namespace formatParser {
+namespace FormatParser {
 
     /* PUBLIC METHOD */
 

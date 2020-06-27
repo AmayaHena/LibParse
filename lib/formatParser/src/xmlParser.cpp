@@ -7,7 +7,7 @@
 
 #include "xmlParser.hpp"
 
-namespace formatParser {
+namespace FormatParser {
 
     /* PUBLIC METHODS */
 

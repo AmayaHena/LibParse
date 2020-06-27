@@ -12,7 +12,7 @@
     #include <iostream>
     #include <vector>
 
-namespace formatParser {
+namespace FormatParser {
 
     class jsonParser final {
 
