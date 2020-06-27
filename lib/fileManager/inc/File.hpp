@@ -12,12 +12,13 @@
 
 namespace fileManager {
 
-    class File{
+    class File final {
 
         public:
 
             File() = default;
             File(std::string &path);
+            ~File() noexcept;
 
             /* Reload */
             bool refresh();

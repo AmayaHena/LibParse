@@ -11,12 +11,12 @@
 
 namespace fileManager {
 
-    class ParserFile {
+    class ParserFile final {
 
         public:
 
             ParserFile() = default;
-            ~ParserFile() = default;
+            ~ParserFile() noexcept = default;
 
             /* Clean a content of a File object */
             std::vector<std::string> cleanContent(File &f);

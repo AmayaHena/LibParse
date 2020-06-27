@@ -14,9 +14,11 @@
 
 namespace formatParser {
 
-    class jsonParser {
+    class jsonParser final {
 
         public:
+
+            ~jsonParser() noexcept = default;
 
             /* Parse JSON all Data */
             std::vector<std::pair<std::string, std::string>> parse(fileManager::File &f);
