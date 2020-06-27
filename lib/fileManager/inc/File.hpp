@@ -10,7 +10,7 @@
     #include <iostream>
     #include <vector>
 
-namespace fileManager {
+namespace FileManager {
 
     class File final {
 

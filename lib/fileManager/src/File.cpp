@@ -10,7 +10,7 @@
 #include <fstream>
 #include <bits/stdc++.h>
 
-namespace fileManager {
+namespace FileManager {
 
     /* PUBLIC METHODS */
 

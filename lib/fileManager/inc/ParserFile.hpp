@@ -9,7 +9,7 @@
 
     #include "File.hpp"
 
-namespace fileManager {
+namespace FileManager {
 
     class ParserFile final {
 

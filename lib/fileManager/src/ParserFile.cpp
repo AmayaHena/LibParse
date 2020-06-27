@@ -7,7 +7,7 @@
 
 #include "ParserFile.hpp"
 
-namespace fileManager {
+namespace FileManager {
 
     /* PUBLIC METHOD */
 

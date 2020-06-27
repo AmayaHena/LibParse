@@ -11,7 +11,7 @@ namespace formatParser {
 
     /* PUBLIC METHODS */
 
-    std::vector<std::pair<std::string, std::string>> xmlParser::parse(fileManager::File &f) { return parseAD(f.getContent()); }
+    std::vector<std::pair<std::string, std::string>> xmlParser::parse(FileManager::File &f) { return parseAD(f.getContent()); }
     std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v) { return parseAD(v); }
 
     /* PRIVATE METHODS */

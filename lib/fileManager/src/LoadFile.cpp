@@ -7,7 +7,7 @@
 
 # include "LoadFile.hpp"
 
-namespace fileManager {
+namespace FileManager {
 
     /* PUBLIC METHOD */
 

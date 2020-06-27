@@ -21,19 +21,19 @@ namespace formatParser {
             ~jsonParser() noexcept = default;
 
             /* Parse JSON all Data */
-            std::vector<std::pair<std::string, std::string>> parse(fileManager::File &f);
+            std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f);
             std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v);
 
             /* Parse JSON with a section name */
-            std::vector<std::pair<std::string, std::string>> parse(fileManager::File &f, std::string match);
+            std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f, std::string match);
             std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v, std::string match);
 
             /* Parse JSON for one data */
-            std::string parseOne(fileManager::File &f, std::string match);
+            std::string parseOne(FileManager::File &f, std::string match);
             std::string parseOne(std::vector<std::string> v, std::string match);
 
             /* Get all section name */
-            std::vector<std::string> getSection(fileManager::File &f);
+            std::vector<std::string> getSection(FileManager::File &f);
             std::vector<std::string> getSection(std::vector<std::string> v);
 
         private:
