@@ -18,8 +18,6 @@ namespace FormatParser {
 
         public:
 
-            ~xmlParser() noexcept = default;
-
             /* Parse XML all Data */
             std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f);
             std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v);

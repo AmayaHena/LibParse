@@ -18,7 +18,6 @@ namespace FileManager {
             LoadFile() = default;
             LoadFile(std::string path);
             LoadFile(std::vector<std::string> path);
-            ~LoadFile() noexcept = default;
 
             /* Management of File(s) object(s) */
             bool load(std::string path);

@@ -16,7 +16,6 @@ namespace FileManager {
         public:
 
             ParserFile() = default;
-            ~ParserFile() noexcept = default;
 
             /* Clean a content of a File object */
             std::vector<std::string> cleanContent(File &f);

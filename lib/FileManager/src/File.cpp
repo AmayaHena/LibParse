@@ -14,9 +14,9 @@ namespace FileManager {
 
     /* PUBLIC METHODS */
 
-    File::File(std::string &path) : _path(path) { load(); }
+    File::File(const std::string &path) : _path(path) { load(); }
 
-    bool File::setPath(std::string &path)
+    bool File::setPath(const std::string &path)
     {
         if (path.empty())
             return false;
