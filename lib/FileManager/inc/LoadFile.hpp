@@ -17,20 +17,10 @@ namespace FileManager {
 
             LoadFile() = default;
             LoadFile(std::string path);
-            LoadFile(std::vector<std::string> path);
 
             /* Management of File(s) object(s) */
             bool load(std::string path);
-            bool load(std::vector<std::string> path);
             void delFile(size_t position);
-
-            /* Getters File(s) object(s) */
-            std::vector<File> getAllFile();
-            File &getFileByExtension(std::string extension, size_t position = 0);
-            std::vector<File> getAFileByExtension(std::string extension);
-            File &getFileByName(std::string name, size_t position = 0);
-            std::vector<File> getAFileByName(std::string name);
-            File &getFileByPath(std::string path);
 
             /* Getters File(s) object(s) Stat(s) */
             size_t getFileNumber();
