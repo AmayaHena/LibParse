@@ -52,7 +52,7 @@ namespace FileManager {
         if (!isFile())
             return false;
         parseExt(_path);
-        parseName(_path);
+        _name = parseName(_path);
         return true;
     }
 
@@ -74,19 +74,19 @@ namespace FileManager {
         return p;
     }
 
-    void File::parseName(std::string s)
+    std::string File::parseName(std::string s)
     {
         if (s.find(".") == std::string::npos
         && s.find("/") == std::string::npos)
-            _name = s;
+            return s;
 
         if (s.find(".") != std::string::npos) {
             if (s.find("/") == std::string::npos)
-                _name = s.substr(0, s.find_last_of("."));
+                return s.substr(0, s.find_last_of("."));
             else
-                _name =  s.substr(s.find_last_of("/") + 1, getLength(s));
+                return s.substr(s.find_last_of("/") + 1, getLength(s));
         }
-        _name = s.substr(s.find_last_of("/") + 1, s.size());
+        return s.substr(s.find_last_of("/") + 1, s.size());
     }
 
     void File::parseExt(std::string s)
