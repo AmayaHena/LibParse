@@ -22,23 +22,19 @@ namespace FileManager {
             bool load(std::string path);
             void delFile(size_t position);
 
-            /* Getters File(s) object(s) Stat(s) */
-            size_t getFileNumber();
-            size_t getFileNumberWExtension(std::string extension);
-            size_t getFileNumberWName(std::string name);
+            /* Getters */
+            size_t getFileNb();
 
             /* Overloading Operator */
             File &operator[](size_t position);
 
         private:
 
-            /* Tools add & del */
-            bool addFile(std::string &path);
+            /* Container */
+            std::vector<File> _cont;
 
-        private:
-
-            std::vector<File> _container;
-            File _error;
+            /* File object */
+            File _f;
 
     };
 
