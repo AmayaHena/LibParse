@@ -9,11 +9,13 @@
 
 namespace FileManager {
 
-    /* PUBLIC METHOD */
+    /* CTOR & DTOR */
 
     LoadFile::LoadFile(std::string path) { load(path); }
 
     LoadFile::LoadFile(std::vector<std::string> path) { load(path); }
+
+    /* PUBLIC METHOD */
 
     bool LoadFile::load(std::string path)
     {

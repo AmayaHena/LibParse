@@ -12,9 +12,11 @@
 
 namespace FileManager {
 
-    /* PUBLIC METHODS */
+    /* CTOR & DTOR */
 
     File::File(const std::string &path) : _path(path) { load(); }
+
+    /* PUBLIC METHODS */
 
     bool File::setPath(const std::string &path)
     {
