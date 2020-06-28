@@ -2,7 +2,7 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** LoadFile
+** Loader
 */
 
 #pragma once
@@ -11,12 +11,12 @@
 
 namespace FileManager {
 
-    class LoadFile final {
+    class Loader final {
 
         public:
 
-            LoadFile() = default;
-            LoadFile(std::string path);
+            Loader() = default;
+            Loader(std::string path);
 
             /* Management of File(s) object(s) */
             bool load(std::string path);

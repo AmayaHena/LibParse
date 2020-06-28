@@ -2,31 +2,31 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** LoadFile
+** Loader
 */
 
-# include "LoadFile.hpp"
+#include "Loader.hpp"
 
 namespace FileManager {
 
     /* CTOR & DTOR */
 
-    LoadFile::LoadFile(std::string path) { load(path); }
+    Loader::Loader(std::string path) { load(path); }
 
     /* PUBLIC METHOD */
 
-    bool LoadFile::load(std::string path)
+    bool Loader::load(std::string path)
     {
         if (!addFile(path))
             return false;
         return true;
     }
 
-    void LoadFile::delFile(size_t position) { _container.erase(_container.begin() + position); }
+    void Loader::delFile(size_t position) { _container.erase(_container.begin() + position); }
 
-    size_t LoadFile::getFileNumber() { return _container.size(); }
+    size_t Loader::getFileNumber() { return _container.size(); }
 
-    size_t LoadFile::getFileNumberWExtension(std::string extension)
+    size_t Loader::getFileNumberWExtension(std::string extension)
     {
         size_t i = 0;
 
@@ -36,7 +36,7 @@ namespace FileManager {
         return i;
     }
 
-    size_t LoadFile::getFileNumberWName(std::string name)
+    size_t Loader::getFileNumberWName(std::string name)
     {
         size_t i = 0;
 
@@ -46,13 +46,13 @@ namespace FileManager {
         return i;
     }
 
-    File &LoadFile::operator[](size_t position) { return _container.at(position); }
+    File &Loader::operator[](size_t position) { return _container.at(position); }
 
     /* PRIVATE METHOD */
 
-    bool LoadFile::addFile(std::string &path)
+    bool Loader::addFile(std::string &path)
     {
-/*         for (size_t i = 0; i < _container.size(); i++)
+        /* for (size_t i = 0; i < _container.size(); i++)
             if (_container[i].getPath() == path)
                 return _container[i].refresh(); */
 
