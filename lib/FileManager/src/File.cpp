@@ -27,11 +27,11 @@ namespace FileManager {
         return load();
     }
 
-    std::string &File::getExtension() { return _ext; }
+    const std::string &File::getExtension() const { return _ext; }
 
-    std::string &File::getName() { return _name; }
+    const std::string &File::getName() const { return _name; }
 
-    std::string &File::getPath() { return _path; }
+    const std::string &File::getPath() const { return _path; }
 
     std::vector<std::string> File::getContent()
     {
@@ -105,7 +105,6 @@ namespace FileManager {
 
     void File::cleanRessources()
     {
-        _path.clear();
         _name.clear();
         _ext.clear();
     }

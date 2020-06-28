@@ -23,9 +23,9 @@ namespace FileManager {
             bool setPath(const std::string &path);
 
             /* Getters */
-            std::string &getExtension();
-            std::string &getName();
-            std::string &getPath();
+            const std::string &getExtension() const;
+            const std::string &getName() const;
+            const std::string &getPath() const;
             std::vector<std::string> getContent();
 
         private:
