@@ -5,10 +5,12 @@
 ** File
 */
 
-#include "File.hpp"
-
 #include <fstream>
+
 #include <bits/stdc++.h>
+#include <unistd.h>
+
+#include "File.hpp"
 
 namespace FileManager {
 
@@ -51,18 +53,10 @@ namespace FileManager {
 
     bool File::load()
     {
-        if (!isFile())
+        if (access(_path.c_str(), F_OK ) == -1)
             return false;
         parseExt(_path);
         _name = parseName(_path);
-        return true;
-    }
-
-    bool File::isFile()
-    {
-        std::fstream f(_path);
-        if (!f)
-            return false;
         return true;
     }
 
