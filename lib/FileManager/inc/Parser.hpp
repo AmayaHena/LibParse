@@ -2,7 +2,7 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** ParserFILE
+** Parser
 */
 
 #pragma once
@@ -11,11 +11,11 @@
 
 namespace FileManager {
 
-    class ParserFile final {
+    class Parser final {
 
         public:
 
-            ParserFile() = default;
+            Parser() = default;
 
             /* Clean a content of a File object */
             std::vector<std::string> cleanContent(File &f);

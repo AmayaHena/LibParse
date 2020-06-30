@@ -2,28 +2,28 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** ParserFile
+** Parser
 */
 
-#include "ParserFile.hpp"
+#include "Parser.hpp"
 
 namespace FileManager {
 
     /* PUBLIC METHOD */
 
-    std::vector<std::string> ParserFile::cleanContent(File &f) { return cleanVector(f.getContent()); }
+    std::vector<std::string> Parser::cleanContent(File &f) { return cleanVector(f.getContent()); }
 
-    std::vector<std::string> ParserFile::cleanContent(std::vector<std::string> v) { return cleanVector(v); }
+    std::vector<std::string> Parser::cleanContent(std::vector<std::string> v) { return cleanVector(v); }
 
-    std::string ParserFile::findStr(std::string s, File &f, size_t i) { return find(s, f.getContent(), i); }
+    std::string Parser::findStr(std::string s, File &f, size_t i) { return find(s, f.getContent(), i); }
 
-    std::string ParserFile::findStr(std::string s, std::vector<std::string> v, size_t i) { return find(s, v, i); }
+    std::string Parser::findStr(std::string s, std::vector<std::string> v, size_t i) { return find(s, v, i); }
 
-    std::vector<std::string> ParserFile::findAStr(std::string s, File &f) { return findA(s, f.getContent()); }
+    std::vector<std::string> Parser::findAStr(std::string s, File &f) { return findA(s, f.getContent()); }
 
-    std::vector<std::string> ParserFile::findAStr(std::string s, std::vector<std::string> v) { return findA(s, v); }
+    std::vector<std::string> Parser::findAStr(std::string s, std::vector<std::string> v) { return findA(s, v); }
 
-    std::vector<std::string> ParserFile::findAStr(std::string s, std::vector<File> v)
+    std::vector<std::string> Parser::findAStr(std::string s, std::vector<File> v)
     {
         std::vector<std::string> r;
 
@@ -36,7 +36,7 @@ namespace FileManager {
 
     /* PRIVATE METHOD */
 
-    std::string ParserFile::cleanLine(std::string s)
+    std::string Parser::cleanLine(std::string s)
     {
         if (s[s.size() - 1] != ' ')
             return s;
@@ -51,7 +51,7 @@ namespace FileManager {
         return s;
     }
 
-    std::vector<std::string> ParserFile::cleanVector(std::vector<std::string> v)
+    std::vector<std::string> Parser::cleanVector(std::vector<std::string> v)
     {
         std::vector<std::string> r;
         std::string tmp;
@@ -67,7 +67,7 @@ namespace FileManager {
         return r;
     }
 
-    std::string ParserFile::find(std::string &s, std::vector<std::string> v, size_t i)
+    std::string Parser::find(std::string &s, std::vector<std::string> v, size_t i)
     {
         std::string ec;
 
@@ -79,7 +79,7 @@ namespace FileManager {
         return ec;
     }
 
-    std::vector<std::string> ParserFile::findA(std::string &s, std::vector<std::string> v)
+    std::vector<std::string> Parser::findA(std::string &s, std::vector<std::string> v)
     {
         std::vector<std::string> r;
 
