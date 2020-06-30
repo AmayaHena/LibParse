@@ -29,12 +29,6 @@ namespace FileManager {
         return load();
     }
 
-    const std::string &File::getExtension() const { return _ext; }
-
-    const std::string &File::getName() const { return _name; }
-
-    const std::string &File::getPath() const { return _path; }
-
     std::vector<std::string> File::getContent()
     {
         std::vector<std::string> cont;
