@@ -11,13 +11,13 @@ namespace FileManager {
 
     /* CTOR & DTOR */
 
-    Loader::Loader(std::string path) { load(path); }
+    Loader::Loader(const std::string &path) { load(path); }
 
     Loader::~Loader() { _cont.clear(); }
 
     /* PUBLIC METHOD */
 
-    bool Loader::load(std::string path)
+    bool Loader::load(const std::string &path)
     {
         for (File &f : _cont)
             if (f.getPath() == path)

@@ -24,7 +24,8 @@ namespace FileManager {
     {
         if (path.empty())
             return false;
-        cleanRessources();
+        _name.clear();
+        _ext.clear();
         _path = path;
         return load();
     }
@@ -58,7 +59,7 @@ namespace FileManager {
     {
         size_t p = s.find_last_of("/") + 1;
 
-        for (size_t n = p; s[p]; n++)
+        for (size_t n = p; s[n]; n++)
             if (s[n] == '.')
                 return n - p;
         return p;
@@ -89,12 +90,6 @@ namespace FileManager {
         s = s.substr(0, s.find_first_of("."));
         std::reverse(s.begin(), s.end());
         _ext = s;
-    }
-
-    void File::cleanRessources()
-    {
-        _name.clear();
-        _ext.clear();
     }
 
 }

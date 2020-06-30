@@ -37,8 +37,6 @@ namespace FileManager {
             std::string parseName(std::string s);
             void parseExt(std::string s);
 
-            void cleanRessources();
-
         private:
 
             std::string _ext;

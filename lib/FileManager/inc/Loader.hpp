@@ -16,11 +16,11 @@ namespace FileManager {
         public:
 
             Loader() = default;
-            Loader(std::string path);
+            Loader(const std::string &path);
             ~Loader() noexcept;
 
             /* File Del & Load */
-            bool load(std::string path);
+            bool load(const std::string &path);
             bool delFile(const std::string &s);
             bool delFile(size_t position = 0);
 
