@@ -18,6 +18,15 @@ namespace FileManager {
 
     File::File(const std::string &path) : _path(path) { load(); }
 
+    File::File(const File &f) { setPath(f.getPath()); }
+
+    File::~File()
+    {
+        _ext.clear();
+        _name.clear();
+        _path.clear();
+    }
+
     /* PUBLIC METHODS */
 
     bool File::setPath(const std::string &path)
