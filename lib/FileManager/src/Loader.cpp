@@ -13,6 +13,8 @@ namespace FileManager {
 
     Loader::Loader(std::string path) { load(path); }
 
+    Loader::~Loader() { _cont.clear(); }
+
     /* PUBLIC METHOD */
 
     bool Loader::load(std::string path)
@@ -28,12 +30,31 @@ namespace FileManager {
         return true;
     }
 
-    void Loader::delFile(size_t position) { _cont.erase(_cont.begin() + position); }
+    bool Loader::delFile(const std::string &s)
+    {
+        for (size_t it = 0; it < _cont.size(); it++)
+            if (_cont[it].getPath() == s)
+                return delFile(it);
+        return false;
+    }
+
+    bool Loader::delFile(size_t pos)
+    {
+        if (pos > _cont.size())
+            return false;
+
+        _cont.erase(_cont.begin() + pos);
+        return true;
+    }
 
     size_t Loader::getFileNb() { return _cont.size(); }
 
-    File &Loader::operator[](size_t position) { return _cont.at(position); }
-
-    /* PRIVATE METHOD */
+    bool Loader::isFile(const std::string &s)
+    {
+        for (const File &f : _cont)
+            if (f.getPath() == s)
+                return true;
+        return false;
+    }
 
 }

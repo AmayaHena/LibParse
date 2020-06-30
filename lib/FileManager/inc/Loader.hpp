@@ -17,16 +17,19 @@ namespace FileManager {
 
             Loader() = default;
             Loader(std::string path);
+            ~Loader() noexcept;
 
-            /* Management of File(s) object(s) */
+            /* File Del & Load */
             bool load(std::string path);
-            void delFile(size_t position);
+            bool delFile(const std::string &s);
+            bool delFile(size_t position = 0);
 
             /* Getters */
+            bool isFile(const std::string &s);
             size_t getFileNb();
 
             /* Overloading Operator */
-            File &operator[](size_t position);
+            inline File &operator[](size_t pos) { return _cont.at(pos); }
 
         private:
 
