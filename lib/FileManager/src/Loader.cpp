@@ -40,7 +40,9 @@ namespace FileManager {
 
     bool Loader::delFile(size_t pos)
     {
-        if (pos > _cont.size())
+        if (static_cast<int>(pos) < 0
+        || pos > _cont.size()
+        || _cont.size() == 0)
             return false;
 
         _cont.erase(_cont.begin() + pos);
