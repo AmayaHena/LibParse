@@ -9,8 +9,8 @@ add_library(Nyx SHARED
     lib/FileManager/src/Loader.cpp
     lib/FileManager/src/Parser.cpp
 
-    lib/FormatParser/src/jsonParser.cpp
-    lib/FormatParser/src/xmlParser.cpp
+    lib/FormatParser/src/JSONParser.cpp
+    lib/FormatParser/src/XMLParser.cpp
 
     )
 
