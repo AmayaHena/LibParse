@@ -2,7 +2,7 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** xmlParser
+** XMLParser
 */
 
 #pragma once
@@ -14,7 +14,7 @@
 
 namespace FormatParser {
 
-    class xmlParser {
+    class XMLParser {
 
         public:
 

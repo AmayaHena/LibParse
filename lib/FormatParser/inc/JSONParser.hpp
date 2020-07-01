@@ -2,7 +2,7 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** jsonParser
+** JSONParser
 */
 
 #pragma once
@@ -14,7 +14,7 @@
 
 namespace FormatParser {
 
-    class jsonParser final {
+    class JSONParser final {
 
         public:
 

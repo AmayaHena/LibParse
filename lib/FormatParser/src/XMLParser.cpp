@@ -2,23 +2,23 @@
 ** PERSONAL PROJECT, 2019
 ** LibParse
 ** File description:
-** xmlParser
+** XMLParser
 */
 
-#include "xmlParser.hpp"
+#include "XMLParser.hpp"
 
 namespace FormatParser {
 
     /* PUBLIC METHODS */
 
-    std::vector<std::pair<std::string, std::string>> xmlParser::parse(FileManager::File &f) { return parseAD(f.getContent()); }
-    std::vector<std::pair<std::string, std::string>> xmlParser::parse(std::vector<std::string> v) { return parseAD(v); }
+    std::vector<std::pair<std::string, std::string>> XMLParser::parse(FileManager::File &f) { return parseAD(f.getContent()); }
+    std::vector<std::pair<std::string, std::string>> XMLParser::parse(std::vector<std::string> v) { return parseAD(v); }
 
     /* PRIVATE METHODS */
 
-    std::string xmlParser::getLValue(std::string &s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
+    std::string XMLParser::getLValue(std::string &s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
 
-    std::string xmlParser::getRValue(std::vector<std::string> v, size_t i)
+    std::string XMLParser::getRValue(std::vector<std::string> v, size_t i)
     {
         std::string s;
 
@@ -40,7 +40,7 @@ namespace FormatParser {
         return s;
     }
 
-    std::vector<std::pair<std::string, std::string>> xmlParser::parseAD(std::vector<std::string> v)
+    std::vector<std::pair<std::string, std::string>> XMLParser::parseAD(std::vector<std::string> v)
     {
         std::vector<std::pair<std::string, std::string>> rez;
 
