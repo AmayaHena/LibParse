@@ -15,21 +15,21 @@ namespace FileManager {
 
     std::vector<std::string> Parser::clean(std::vector<std::string> &v) { return cleanV(v); }
 
-    std::string Parser::find(std::string s, File &f, size_t i) { return findS(s, f.getContent(), i); }
+    std::string Parser::find(const std::string &s, File &f, size_t i) { return findS(s, f.getContent(), i); }
 
-    std::string Parser::find(std::string s, std::vector<std::string> v, size_t i) { return findS(s, v, i); }
+    std::string Parser::find(const std::string &s, const std::vector<std::string> &v, size_t i) { return findS(s, v, i); }
 
     /* PRIVATE METHOD */
 
-    void Parser::cleanL(std::string &s)
+    void Parser::cleanG(std::string &s)
     {
         if (s[s.size() - 1] != ' ')
             return;
 
-        for (int i = s.size(); i >= 0; i--) {
-            if (s[i] == ' ') {
-                s.erase(i);
-                if (s[i - 1] != ' ')
+        for (size_t it = s.size(); static_cast<int>(it) >= 0; it--) {
+            if (s[it] == ' ') {
+                s.erase(it);
+                if (s[it - 1] != ' ')
                     return;
             }
         }
@@ -41,7 +41,7 @@ namespace FileManager {
 
         for (std::string &s: v) {
             if (!s.empty()) {
-                cleanL(s);
+                cleanG(s);
                 if (!s.empty())
                     r.push_back(s);
             }
@@ -49,16 +49,14 @@ namespace FileManager {
         return r;
     }
 
-    std::string Parser::findS(std::string &s, std::vector<std::string> v, size_t i)
+    std::string Parser::findS(const std::string &s, const std::vector<std::string> &v, size_t i)
     {
-        std::string ec;
-
         while (i < v.size()) {
             if (v[i].find(s, 0) != std::string::npos)
                 return v[i];
             i++;
         }
-        return ec;
+        return "";
     }
 
 }
