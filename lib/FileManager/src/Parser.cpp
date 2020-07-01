@@ -13,7 +13,7 @@ namespace FileManager {
 
     std::vector<std::string> Parser::clean(File &f) { return cleanV(f.getContent()); }
 
-    std::vector<std::string> Parser::clean(std::vector<std::string> v) { return cleanV(v); }
+    std::vector<std::string> Parser::clean(std::vector<std::string> &v) { return cleanV(v); }
 
     std::string Parser::find(std::string s, File &f, size_t i) { return findS(s, f.getContent(), i); }
 
@@ -21,32 +21,29 @@ namespace FileManager {
 
     /* PRIVATE METHOD */
 
-    std::string Parser::cleanL(std::string s)
+    void Parser::cleanL(std::string &s)
     {
         if (s[s.size() - 1] != ' ')
-            return s;
+            return;
 
         for (int i = s.size(); i >= 0; i--) {
             if (s[i] == ' ') {
                 s.erase(i);
                 if (s[i - 1] != ' ')
-                    break;
+                    return;
             }
         }
-        return s;
     }
 
     std::vector<std::string> Parser::cleanV(std::vector<std::string> v)
     {
         std::vector<std::string> r;
-        std::string tmp;
 
-        for (const std::string &s: v) {
-            if (!s.empty())
-                tmp = cleanL(s);
+        for (std::string &s: v) {
             if (!s.empty()) {
-                r.push_back(tmp);
-                tmp.clear();
+                cleanL(s);
+                if (!s.empty())
+                    r.push_back(s);
             }
         }
         return r;

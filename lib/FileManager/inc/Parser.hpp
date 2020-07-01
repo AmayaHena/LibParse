@@ -20,7 +20,7 @@ namespace FileManager {
 
             /* Clean a content of a File object */
             std::vector<std::string> clean(File &f);
-            std::vector<std::string> clean(std::vector<std::string> v);
+            std::vector<std::string> clean(std::vector<std::string> &v);
 
             /* Scearch Tool */
             std::string find(std::string s, File &f, size_t i = 0);
@@ -29,7 +29,7 @@ namespace FileManager {
         private:
 
             /* Clean */
-            std::string cleanL(std::string s);
+            void cleanL(std::string &s);
             std::vector<std::string> cleanV(std::vector<std::string> v);
 
             /* Parse */
