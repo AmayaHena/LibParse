@@ -15,7 +15,7 @@ namespace FormatParser {
 
     std::string JSONParser::getRValue(std::string s) { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(std::vector<std::string> v)
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v)
     {
         std::vector<std::pair<std::string, std::string>> rez;
 
@@ -37,7 +37,7 @@ namespace FormatParser {
         return rez;
     }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseS(std::vector<std::string> v, std::string &match)
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseS(const std::vector<std::string> &v, const std::string &match)
     {
         std::vector<std::pair<std::string, std::string>> rez;
 
@@ -73,7 +73,7 @@ namespace FormatParser {
         return rez;
     }
 
-    std::string JSONParser::parseO(std::vector<std::string> v, std::string &match)
+    std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match)
     {
         std::string rez;
 
@@ -85,7 +85,7 @@ namespace FormatParser {
         return rez;
     }
 
-    std::vector<std::string> JSONParser::getSName(std::vector<std::string> v)
+    std::vector<std::string> JSONParser::getSName(const std::vector<std::string> &v)
     {
         std::vector<std::string> rez;
 
