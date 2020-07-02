@@ -7,10 +7,10 @@
 
 #pragma once
 
-    #include "File.hpp"
-
     #include <iostream>
     #include <vector>
+
+    #include "File.hpp"
 
 namespace FormatParser {
 
