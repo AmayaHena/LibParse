@@ -38,5 +38,5 @@ build/
 .vscode
 
 # personal file aka personal shit
-test
+test/
 clean.sh
