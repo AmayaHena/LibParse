@@ -9,6 +9,13 @@ I'll try to update often
 
 You can find documentation in Wiki section, on github repo
 
+## Utility
+
+File Management
+File Parsing
+JSON Parsing
+XML Parsing
+
 ## Build
 To build the project, CMake is required.
 
