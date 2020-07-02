@@ -34,7 +34,6 @@ namespace FileManager {
 
             /* Parsing */
             bool load();
-
             size_t getLength(std::string &s);
             std::string parseName(std::string s);
             void parseExt(std::string s);
