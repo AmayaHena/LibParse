@@ -21,6 +21,7 @@ namespace FormatParser {
 
         if (v.empty())
             return rez;
+
         for (size_t i = 0; i < v.size(); i++) {
             std::string s = getLValue(v[i]);
 
@@ -75,14 +76,13 @@ namespace FormatParser {
 
     std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match)
     {
-        std::string rez;
-
         if (v.empty() || match.empty())
-            return rez;
+            return "";
+
         for (const std::string &s : v)
             if (s.find("\"" + match + "\"") != std::string::npos)
                 return getRValue(s);
-        return rez;
+        return "";
     }
 
     std::vector<std::string> JSONParser::getSName(const std::vector<std::string> &v)
@@ -91,11 +91,11 @@ namespace FormatParser {
 
         if (v.empty())
             return rez;
+
         for (const std::string &s : v)
             if (s.find("{") != std::string::npos
             && s.size() > 1)
                 rez.push_back(getLValue(s));
-
         return rez;
     }
 
