@@ -19,20 +19,20 @@ namespace FormatParser {
         public:
 
             /* Parse JSON all Data */
-            std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f);
-            std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v);
+            inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f) { return parseAD(f.getContent()); }
+            inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v) { return parseAD(v); }
 
             /* Parse JSON with a section name */
-            std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f, std::string match);
-            std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v, std::string match);
+            inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f, std::string match) { return parseS(f.getContent(), match); }
+            inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v, std::string match) { return parseS(v, match); }
 
             /* Parse JSON for one data */
-            std::string parseOne(FileManager::File &f, std::string match);
-            std::string parseOne(std::vector<std::string> v, std::string match);
+            inline std::string parseOne(FileManager::File &f, std::string match) { return parseO(f.getContent(), match); }
+            inline std::string parseOne(std::vector<std::string> v, std::string match) { return parseO(v, match); }
 
             /* Get all section name */
-            std::vector<std::string> getSection(FileManager::File &f);
-            std::vector<std::string> getSection(std::vector<std::string> v);
+            inline std::vector<std::string> getSection(FileManager::File &f) { return getSName(f.getContent()); }
+            inline std::vector<std::string> getSection(std::vector<std::string> v) { return getSName(v); }
 
         private:
 
