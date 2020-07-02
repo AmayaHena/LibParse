@@ -23,17 +23,16 @@ namespace FormatParser {
             return rez;
 
         for (size_t i = 0; i < v.size(); i++) {
-            std::string s = getLValue(v[i]);
 
-            if (v[i].find("[") != std::string::npos
-            && v[i].find("]") == std::string::npos)
+            if (v[i].find("[") != std::string::npos && v[i].find("]") == std::string::npos) {
+                std::string s = getLValue(v[i]);
                 while (v[i++].find("]") == std::string::npos)
                     rez.push_back(make_pair(s, getRValue(v[i])));
+            }
 
-            if (v[i].find("{") == std::string::npos
-            && v[i].find("}") == std::string::npos
+            else if (v[i].find("{") == std::string::npos && v[i].find("}") == std::string::npos
             && !v[i].empty())
-                rez.push_back(make_pair(s, getRValue(v[i])));
+                rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
         }
         return rez;
     }
@@ -54,22 +53,19 @@ namespace FormatParser {
             return rez;
 
         for (size_t j = 1; j > 0; i++) {
-            std::string s = getLValue(v[i]);
-
             if (v[i].find("{") != std::string::npos)
                 j++;
-            if (v[i].find("}") != std::string::npos)
+            else if (v[i].find("}") != std::string::npos)
                 j--;
 
-            if (v[i].find("[") != std::string::npos
-            && v[i].find("]") == std::string::npos)
+            if (v[i].find("[") != std::string::npos && v[i].find("]") == std::string::npos) {
+                std::string s = getLValue(v[i]);
                 while (v[i++].find("]") == std::string::npos)
                     rez.push_back(make_pair(s, getRValue(v[i])));
-
-            if (v[i].find("{") == std::string::npos
-            && v[i].find("}") == std::string::npos
+            }
+            else if (v[i].find("{") == std::string::npos && v[i].find("}") == std::string::npos
             && !v[i].empty())
-                rez.push_back(make_pair(s, getRValue(v[i])));
+                rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
         }
         return rez;
     }
