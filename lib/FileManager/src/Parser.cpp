@@ -9,16 +9,6 @@
 
 namespace FileManager {
 
-    /* PUBLIC METHOD */
-
-    std::vector<std::string> Parser::clean(File &f) { return cleanV(f.getContent()); }
-
-    std::vector<std::string> Parser::clean(std::vector<std::string> &v) { return cleanV(v); }
-
-    std::string Parser::find(const std::string &s, File &f, size_t i) { return findS(s, f.getContent(), i); }
-
-    std::string Parser::find(const std::string &s, const std::vector<std::string> &v, size_t i) { return findS(s, v, i); }
-
     /* PRIVATE METHOD */
 
     void Parser::cleanG(std::string &s)

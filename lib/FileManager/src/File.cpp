@@ -16,9 +16,9 @@ namespace FileManager {
 
     /* CTOR & DTOR */
 
-    File::File(const std::string &path) : _path(path) { load(); }
-
     File::File(const File &f) { setPath(f.getPath()); }
+
+    File::File(const std::string &path) : _path(path) { load(); }
 
     File::~File()
     {

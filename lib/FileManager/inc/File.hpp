@@ -17,8 +17,8 @@ namespace FileManager {
         public:
 
             File() = default;
-            File(const std::string &path);
             File(const File &f);
+            File(const std::string &path);
             ~File() noexcept;
 
             /* Change path */
