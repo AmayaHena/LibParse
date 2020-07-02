@@ -18,18 +18,18 @@ namespace FormatParser {
 
         public:
 
-            /* Parse XML all Data */
-            std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f);
-            std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v);
+            /* Parse */
+            inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f)  { return parseAD(f.getContent()); }
+            inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> &v)  { return parseAD(v); }
 
         private:
 
-            /* Parsing tools */
-            std::string getLValue(std::string &s);
-            std::string getRValue(std::vector<std::string> v, size_t i);
+            /* Parsing LV RV */
+            std::string getLValue(std::string s);
+            std::string getRValue(const std::vector<std::string> &v, size_t i);
 
-            /* XML Parsing Core */
-            std::vector<std::pair<std::string, std::string>> parseAD(std::vector<std::string> v);
+            /* Parsing */
+            std::vector<std::pair<std::string, std::string>> parseAD(const std::vector<std::string> &v);
 
     };
 
