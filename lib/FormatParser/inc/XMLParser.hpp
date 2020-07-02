@@ -24,7 +24,7 @@ namespace FormatParser {
 
         private:
 
-            /* Parsing LV RV */
+            /* Parsing LV & RV */
             std::string getLValue(std::string s);
             std::string getRValue(const std::vector<std::string> &v, size_t i);
 
