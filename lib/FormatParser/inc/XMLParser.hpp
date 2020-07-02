@@ -18,6 +18,9 @@ namespace FormatParser {
 
         public:
 
+            XMLParser() = default;
+            ~XMLParser() = default;
+
             /* Parse */
             inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f)  { return parseAD(f.getContent()); }
             inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> &v)  { return parseAD(v); }
