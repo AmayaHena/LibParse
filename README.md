@@ -3,7 +3,7 @@
 </p>
 
 ## Description
-A try to make an useful lib to parse things
+A try to make a useful lib to parse things
 
 Currently writting the doc, you still can find comments in headers if you need
 
