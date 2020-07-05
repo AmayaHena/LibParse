@@ -11,16 +11,16 @@ namespace FormatParser {
 
     /* PRIVATE METHODS */
 
-    std::string XMLParser::getLValue(std::string s) { return s.substr(s.find_first_of("<") +1, s.find_first_of(">") -1); }
+    std::string XMLParser::getLValue(const std::string &s) { return s.substr(s.find_first_of("<") + 1, s.find_first_of(">") - 1); }
 
     std::string XMLParser::getRValue(const std::vector<std::string> &v, size_t i)
     {
         std::string s;
 
         if (v[i].find("</") != std::string::npos) {
-            return v[i].substr(v[i].find_first_of(">") +1, v[i].find_last_of("<") - v[i].find_first_of(">") -1);
+            return v[i].substr(v[i].find_first_of(">") + 1, v[i].find_last_of("<") - v[i].find_first_of(">") - 1);
         } else {
-            s += v[i].substr(v[i].find_first_of(">") +1, v[i].size() - 1);
+            s += v[i].substr(v[i].find_first_of(">") + 1, v[i].size() - 1);
             if (v[i + 1].find("</") != std::string::npos) {
                 s += v[i + 1].substr(0, v[i + 1].find("</"));
                 return s;

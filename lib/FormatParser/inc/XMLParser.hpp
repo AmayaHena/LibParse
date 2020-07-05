@@ -14,7 +14,7 @@
 
 namespace FormatParser {
 
-    class XMLParser {
+    class XMLParser final {
 
         public:
 
@@ -23,12 +23,12 @@ namespace FormatParser {
 
             /* Parse */
             inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f)  { return parseAD(f.getContent()); }
-            inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> &v)  { return parseAD(v); }
+            inline std::vector<std::pair<std::string, std::string>> parse(const std::vector<std::string> &v)  { return parseAD(v); }
 
         private:
 
             /* Parsing LV & RV */
-            std::string getLValue(std::string s);
+            std::string getLValue(const std::string &s);
             std::string getRValue(const std::vector<std::string> &v, size_t i);
 
             /* Parsing */
