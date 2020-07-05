@@ -34,4 +34,4 @@ mkdir build && cd build && cmake .. && make
 
 ## Preview
 
-![](https://github.com/AmayaHena/Nyx/blob/master/images/example_code.gif)
+![](https://github.com/AmayaHena/Nyx/blob/master/images/nyx_preview.gif)
