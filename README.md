@@ -7,7 +7,7 @@ A try to make an easy and useful lib to parse things
 
 I'll try to update often
 
-You can find documentation in Wiki section, on github repo
+You can find documentation in Wiki section, on github repo (Currently rewritting the doc)
 
 ## Utility
 
