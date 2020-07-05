@@ -32,22 +32,22 @@ namespace FormatParser {
 
     std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v)
     {
-        std::vector<std::pair<std::string, std::string>> rez;
+        std::vector<std::pair<std::string, std::string>> r;
 
         if (v.empty())
-            return rez;
+            return r;
 
         for (size_t it = 0; it < v.size(); it++)
-            it = makePair(v, rez, it);
-        return rez;
+            it = makePair(v, r, it);
+        return r;
     }
 
     std::vector<std::pair<std::string, std::string>> JSONParser::parseS(const std::vector<std::string> &v, const std::string &match)
     {
-        std::vector<std::pair<std::string, std::string>> rez;
+        std::vector<std::pair<std::string, std::string>> r;
 
         if (v.empty() || match.empty())
-            return rez;
+            return r;
 
         size_t it = 0;
 
@@ -55,7 +55,7 @@ namespace FormatParser {
             if (v[it++].find("\"" + match + "\": {") != std::string::npos)
                 break;
         if (it == v.size())
-            return rez;
+            return r;
 
         for (size_t j = 1; j > 0; it++) {
             if (v[it].find("{") != std::string::npos)
@@ -63,9 +63,9 @@ namespace FormatParser {
             else if (v[it].find("}") != std::string::npos)
                 j--;
 
-            it = makePair(v, rez, it);
+            it = makePair(v, r, it);
         }
-        return rez;
+        return r;
     }
 
     std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match)
@@ -81,16 +81,16 @@ namespace FormatParser {
 
     std::vector<std::string> JSONParser::getSName(const std::vector<std::string> &v)
     {
-        std::vector<std::string> rez;
+        std::vector<std::string> r;
 
         if (v.empty())
-            return rez;
+            return r;
 
         for (const std::string &s : v)
             if (s.find("{") != std::string::npos
             && s.size() > 1)
-                rez.push_back(getLValue(s));
-        return rez;
+                r.push_back(getLValue(s));
+        return r;
     }
 
 }
