@@ -15,6 +15,21 @@ namespace FormatParser {
 
     std::string JSONParser::getRValue(std::string s) { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
 
+    size_t JSONParser::makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it)
+    {
+        if (v[it].find("[") != std::string::npos && v[it].find("]") == std::string::npos) {
+            const std::string s = getLValue(v[it]);
+            while (v[it++].find("]") == std::string::npos)
+                r.push_back(make_pair(s, getRValue(v[it])));
+            return it;
+        }
+
+        else if (v[it].find("{") == std::string::npos && v[it].find("}") == std::string::npos
+        && !v[it].empty())
+            r.push_back(make_pair(getLValue(v[it]), getRValue(v[it])));
+        return it;
+    }
+
     std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v)
     {
         std::vector<std::pair<std::string, std::string>> rez;
@@ -22,18 +37,8 @@ namespace FormatParser {
         if (v.empty())
             return rez;
 
-        for (size_t i = 0; i < v.size(); i++) {
-
-            if (v[i].find("[") != std::string::npos && v[i].find("]") == std::string::npos) {
-                std::string s = getLValue(v[i]);
-                while (v[i++].find("]") == std::string::npos)
-                    rez.push_back(make_pair(s, getRValue(v[i])));
-            }
-
-            else if (v[i].find("{") == std::string::npos && v[i].find("}") == std::string::npos
-            && !v[i].empty())
-                rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
-        }
+        for (size_t it = 0; it < v.size(); it++)
+            it = makePair(v, rez, it);
         return rez;
     }
 
@@ -44,28 +49,21 @@ namespace FormatParser {
         if (v.empty() || match.empty())
             return rez;
 
-        size_t i = 0;
+        size_t it = 0;
 
-        while (i < v.size())
-            if (v[i++].find("\"" + match + "\": {") != std::string::npos)
+        while (it < v.size())
+            if (v[it++].find("\"" + match + "\": {") != std::string::npos)
                 break;
-        if (i == v.size())
+        if (it == v.size())
             return rez;
 
-        for (size_t j = 1; j > 0; i++) {
-            if (v[i].find("{") != std::string::npos)
+        for (size_t j = 1; j > 0; it++) {
+            if (v[it].find("{") != std::string::npos)
                 j++;
-            else if (v[i].find("}") != std::string::npos)
+            else if (v[it].find("}") != std::string::npos)
                 j--;
 
-            if (v[i].find("[") != std::string::npos && v[i].find("]") == std::string::npos) {
-                std::string s = getLValue(v[i]);
-                while (v[i++].find("]") == std::string::npos)
-                    rez.push_back(make_pair(s, getRValue(v[i])));
-            }
-            else if (v[i].find("{") == std::string::npos && v[i].find("}") == std::string::npos
-            && !v[i].empty())
-                rez.push_back(make_pair(getLValue(v[i]), getRValue(v[i])));
+            it = makePair(v, rez, it);
         }
         return rez;
     }

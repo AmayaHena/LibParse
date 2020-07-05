@@ -25,7 +25,7 @@ namespace FormatParser {
             inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f) { return parseAD(f.getContent()); }
             inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> &v) { return parseAD(v); }
 
-            /* Parse Section(s) */
+            /* Parse Section */
             inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f, const std::string &match) { return parseS(f.getContent(), match); }
             inline std::vector<std::pair<std::string, std::string>> parse(std::vector<std::string> v, const std::string &match) { return parseS(v, match); }
 
@@ -42,6 +42,9 @@ namespace FormatParser {
             /* Parsing LV & RV */
             std::string getLValue(std::string s);
             std::string getRValue(std::string s);
+
+            /* Compute LV & RV */
+            size_t makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it);
 
             /* Parsing */
             std::vector<std::pair<std::string, std::string>> parseAD(const std::vector<std::string> &v);
