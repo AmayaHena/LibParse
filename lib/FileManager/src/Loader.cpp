@@ -30,10 +30,10 @@ namespace FileManager {
         return true;
     }
 
-    bool Loader::delFile(const std::string &s)
+    bool Loader::delFile(const std::string &path)
     {
         for (size_t it = 0; it < _cont.size(); it++)
-            if (_cont[it].getPath() == s)
+            if (_cont[it].getPath() == path)
                 return delFile(it);
         return false;
     }
