@@ -3,9 +3,11 @@
 </p>
 
 ## Description
-A try to make a useful lib to parse things
+A try to make a useful lib to parse things.
 
-Currently writting the doc, you still can find comments in headers if you need
+WARNING: This lib is based on my personals needs in general, you can contact if you have an idea.
+
+Currently writting the doc, you still can find comments in headers if you need.
 
 ## Utility
 File Management
