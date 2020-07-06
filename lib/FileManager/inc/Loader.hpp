@@ -22,7 +22,7 @@ namespace FileManager {
             /* File Del & Load */
             bool load(const std::string &path);
             bool delFile(const std::string &path);
-            bool delFile(size_t position = 0);
+            bool delFile(size_t pos = 0);
 
             /* Getters */
             bool isFile(const std::string &s);
