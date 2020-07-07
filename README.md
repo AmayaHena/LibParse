@@ -7,7 +7,7 @@ A try to make a useful lib to parse things.
 
 WARNING: This lib is based on my personals needs in general, you can contact if you have an idea.
 
-Currently writting the doc, you still can find comments in headers if you need.
+You can find the documentation in the Wiki section of this repo.
 
 ## Utility
 File Management
