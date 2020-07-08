@@ -15,3 +15,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: ./build.sh
+
+  test_file:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: ./build.sh
+    - name: test_file
+      run: cd .github/workflows && g++ file.cpp -fPIC ../../libNyx.so -I ../../lib/FileManager/inc -I ../../lib/FormatParser/inc && LD_PRELOAD=../../libNyx.so  ./a.out
