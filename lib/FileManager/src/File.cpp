@@ -33,6 +33,8 @@ namespace FileManager {
     {
         if (path.empty())
             return false;
+        if (path == _path)
+            return true;
         _name.clear();
         _ext.clear();
         _path = path;
