@@ -31,7 +31,7 @@ You can also do the manual command line:
 mkdir build && cd build && cmake .. && make
 ```
 
-## Clens
+## Clean
 If needed a cute script to clean the files generated after a build:
 ```
 #!/bin/bash
