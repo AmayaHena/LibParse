@@ -50,7 +50,7 @@ int main()
     if (!f2.setPath("../../lib/FileManager/inc/File.hpp"))
         return 84;
 
-    std::cout << "LOAD : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "LOAD : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TESTTING EXT */
 
@@ -61,7 +61,7 @@ int main()
     if (f2.getExtension() != "hpp")
         return 84;
 
-    std::cout << "EXT : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "EXT : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TESTTING PATH */
 
@@ -72,7 +72,7 @@ int main()
     if (f2.getPath() != "../../lib/FileManager/inc/File.hpp")
         return 84;
 
-    std::cout << "PATH : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "PATH : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TESTTING NAME */
 
@@ -83,7 +83,7 @@ int main()
     if (f2.getName() != "File")
         return 84;
 
-    std::cout << "NAME : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "NAME : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TESTTING CONTENT */
 

@@ -43,7 +43,7 @@ int main()
     if (f.getFileNb() != 3)
         return 84;
 
-    std::cout << "LOAD : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "LOAD : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TEST ISFILE */
 
@@ -82,7 +82,7 @@ int main()
     if (!f.isFile("../../lib/FileManager/inc/File.hpp"))
         return 84;
 
-    std::cout << "DEL : \t[\033[1;32mOK\033[0m]" << std::endl;
+    std::cout << "DEL : \t\t[\033[1;32mOK\033[0m]" << std::endl;
 
     return 0;
 }
