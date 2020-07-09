@@ -1,6 +1,6 @@
 /*
-** PERSONAL PROJECT, 2019
-** LibParse
+** PERSONAL PROJECT, 2020
+** Nyx
 ** File description:
 ** Parser
 */

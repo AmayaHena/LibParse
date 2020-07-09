@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2020
-** LibParse
+** PERSONAL PROJECT, 2020
+** Nyx
 ** File description:
-** main
+** file
 */
 
 #include <fstream>
