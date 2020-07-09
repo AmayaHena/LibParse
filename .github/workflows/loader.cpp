@@ -19,7 +19,7 @@ int main()
     if (f.delFile("kappa.txt"))
         return 84;
 
-    std::cout << "DEL EC : OK" << std::endl;
+    std::cout << "DEL EC : \t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TEST LOAD EC */
     if (f.load("../ec.txt"))
@@ -27,7 +27,7 @@ int main()
     if (f.getFileNb() != 0)
         return 84;
 
-    std::cout << "LOAD EC : OK" << std::endl;
+    std::cout << "LOAD EC : \t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TEST LAOD */
     if (!f.load("../../CMakeLists.txt"))
@@ -43,7 +43,7 @@ int main()
     if (f.getFileNb() != 3)
         return 84;
 
-    std::cout << "LOAD : OK" << std::endl;
+    std::cout << "LOAD : \t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TEST ISFILE */
 
@@ -56,7 +56,7 @@ int main()
     if (!f.isFile("../../lib/FileManager/inc/File.hpp"))
         return 84;
 
-    std::cout << "ISFILE : OK" << std::endl;
+    std::cout << "ISFILE : \t[\033[1;32mOK\033[0m]" << std::endl;
 
     /* TEST DEL */
 
@@ -82,7 +82,7 @@ int main()
     if (!f.isFile("../../lib/FileManager/inc/File.hpp"))
         return 84;
 
-    std::cout << "DEL : OK" << std::endl;
+    std::cout << "DEL : \t[\033[1;32mOK\033[0m]" << std::endl;
 
     return 0;
 }
