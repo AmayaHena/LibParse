@@ -37,3 +37,14 @@ jobs:
       run: ./build.sh
     - name: test_loader
       run: cd .github/workflows && g++ loader.cpp -fPIC ../../libNyx.so -I ../../lib/FileManager/inc -I ../../lib/FormatParser/inc && LD_PRELOAD=../../libNyx.so  ./a.out
+
+  test_parser:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: ./build.sh
+    - name: test_parser
+      run: cd .github/workflows && g++ parser.cpp -fPIC ../../libNyx.so -I ../../lib/FileManager/inc -I ../../lib/FormatParser/inc && LD_PRELOAD=../../libNyx.so  ./a.out
