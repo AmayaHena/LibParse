@@ -29,23 +29,13 @@ namespace FileManager {
 
     bool File::setPath(const std::string &path)
     {
-        if (path.empty())
+        if (path.empty()
+        || path == _path)
             return false;
-        if (path == _path)
-            return true;
         _name.clear();
         _ext.clear();
         _path = path;
         return load();
-    }
-
-    bool File::rm()
-    {
-        if (!isFile())
-            return false;
-        if (remove(_path.c_str()) != 0)
-            return false;
-        return true;
     }
 
     bool File::create(const std::vector<std::string> &in)
@@ -68,6 +58,15 @@ namespace FileManager {
             f << s << std::endl;
         f.close();
 
+        return true;
+    }
+
+    bool File::rm()
+    {
+        if (!isFile())
+            return false;
+        if (remove(_path.c_str()) != 0)
+            return false;
         return true;
     }
 

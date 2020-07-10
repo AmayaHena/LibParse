@@ -29,10 +29,10 @@ namespace FileManager {
 
             /* Management */
             inline bool isFile() { return access(_path.c_str(), F_OK ) != -1; }
-            bool rm();
             inline bool create() { return createFile(); }
             bool create(const std::vector<std::string> &in);
             bool write(const std::vector<std::string> &in);
+            bool rm();
 
             /* Getters */
             inline const std::string &getExtension() const { return _ext; }
