@@ -32,6 +32,7 @@ namespace FileManager {
             bool rm();
             inline bool create() { return createFile(); }
             bool create(const std::vector<std::string> &in);
+            bool write(const std::vector<std::string> &in);
 
             /* Getters */
             inline const std::string &getExtension() const { return _ext; }

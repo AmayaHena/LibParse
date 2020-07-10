@@ -52,6 +52,15 @@ namespace FileManager {
     {
         if (!createFile())
             return false;
+        if (!write(in))
+            return false;
+        return true;
+    }
+
+    bool File::write(const std::vector<std::string> &in)
+    {
+        if (!isFile())
+            return false;
 
         std::ofstream f(_path);
 
