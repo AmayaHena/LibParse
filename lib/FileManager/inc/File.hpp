@@ -29,6 +29,9 @@ namespace FileManager {
 
             /* Management */
             inline bool isFile() { return access(_path.c_str(), F_OK ) != -1; }
+            bool rm();
+            inline bool create() { return createFile(); }
+            bool create(const std::vector<std::string> &in);
 
             /* Getters */
             inline const std::string &getExtension() const { return _ext; }
@@ -37,6 +40,9 @@ namespace FileManager {
             std::vector<std::string> getContent();
 
         private:
+
+            /* Create */
+            bool createFile();
 
             /* Parsing */
             bool load();

@@ -6,6 +6,7 @@
 */
 
 #include <fstream>
+#include <stdio.h>
 
 #include "File.hpp"
 
@@ -38,6 +39,29 @@ namespace FileManager {
         return load();
     }
 
+    bool File::rm()
+    {
+        if (!isFile())
+            return false;
+        if (remove(_path.c_str()) != 0)
+            return false;
+        return true;
+    }
+
+    bool File::create(const std::vector<std::string> &in)
+    {
+        if (!createFile())
+            return false;
+
+        std::ofstream f(_path);
+
+        for (const std::string &s : in)
+            f << s << std::endl;
+        f.close();
+
+        return true;
+    }
+
     std::vector<std::string> File::getContent()
     {
         std::vector<std::string> cont;
@@ -53,6 +77,20 @@ namespace FileManager {
     }
 
     /* PRIVATE METHODS */
+
+    bool File::createFile()
+    {
+        if (isFile())
+            return false;
+
+        std::ofstream f(_path);
+        f.close();
+
+        if (!isFile())
+            return false;
+
+        return true;
+    }
 
     bool File::load()
     {
