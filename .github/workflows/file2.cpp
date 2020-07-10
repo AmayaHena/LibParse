@@ -15,8 +15,8 @@
 int main()
 {
     /* INIT */
-    FileManager::File f("CMakeLists.txt");
-    FileManager::File f2("build.sh");
+    FileManager::File f("../../CMakeLists.txt");
+    FileManager::File f2("../../build.sh");
 
     /* TEST CR & RM EC */
     if (!f.isFile())
@@ -40,9 +40,6 @@ int main()
 
     if (!f.create(f2.getContent()))
         return 84;
-
-    for (std::string s : f.getContent())
-        std::cout << s << std::endl;
 
     if (!f.rm())
         return 84;
