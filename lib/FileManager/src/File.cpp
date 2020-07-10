@@ -7,9 +7,6 @@
 
 #include <fstream>
 
-#include <bits/stdc++.h>
-#include <unistd.h>
-
 #include "File.hpp"
 
 namespace FileManager {
@@ -59,7 +56,7 @@ namespace FileManager {
 
     bool File::load()
     {
-        if (access(_path.c_str(), F_OK ) == -1)
+        if (!isFile())
             return false;
         parseExt(_path);
         _name = parseName(_path);

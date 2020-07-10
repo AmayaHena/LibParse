@@ -10,6 +10,9 @@
     #include <iostream>
     #include <vector>
 
+    #include <unistd.h>
+    #include <bits/stdc++.h>
+
 namespace FileManager {
 
     class File final {
@@ -23,6 +26,9 @@ namespace FileManager {
 
             /* Change path */
             bool setPath(const std::string &path);
+
+            /* Management */
+            inline bool isFile() { return access(_path.c_str(), F_OK ) != -1; }
 
             /* Getters */
             inline const std::string &getExtension() const { return _ext; }
