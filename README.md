@@ -3,11 +3,13 @@
 </p>
 
 ## Description
-A try to make a useful lib to parse things.
+A try to make a useful lib to parse things & manage file(s).
 
-WARNING: This lib is based on my personals needs in general, you can contact if you have an idea.
+Working on linux only.
 
 You can find the documentation in the Wiki section of this repo.
+
+WARNING: This lib is based on my personals needs in general, you can contact if you have an idea.
 
 ## Utility
 File Management
