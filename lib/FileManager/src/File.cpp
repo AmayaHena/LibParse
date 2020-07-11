@@ -40,7 +40,7 @@ namespace FileManager {
 
     bool File::create(const std::vector<std::string> &in)
     {
-        if (!createFile())
+        if (!createFile() || _path.empty())
             return false;
         if (!write(in))
             return false;
@@ -49,7 +49,7 @@ namespace FileManager {
 
     bool File::write(const std::vector<std::string> &in)
     {
-        if (!isFile())
+        if (!isFile() || _path.empty())
             return false;
 
         std::ofstream f(_path);
@@ -63,7 +63,7 @@ namespace FileManager {
 
     bool File::rm()
     {
-        if (!isFile())
+        if (!isFile() || _path.empty())
             return false;
         if (remove(_path.c_str()) != 0)
             return false;
@@ -74,7 +74,7 @@ namespace FileManager {
     {
         std::vector<std::string> cont;
         std::fstream f(_path);
-        if (!f)
+        if (!f || _path.empty())
             return cont;
 
         std::string tmp;
