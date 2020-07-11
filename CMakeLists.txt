@@ -12,11 +12,14 @@ add_library(Nyx SHARED
     lib/FormatParser/src/JSONParser.cpp
     lib/FormatParser/src/XMLParser.cpp
 
+    lib/FormatWriter/src/JSONWriter.cpp
+
     )
 
 target_include_directories(Nyx
 
     PUBLIC lib/FileManager/inc/
     PUBLIC lib/FormatParser/inc/
+    PUBLIC lib/FormatWriter/inc/
 
     )
