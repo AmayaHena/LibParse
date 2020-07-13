@@ -10,7 +10,7 @@
 #include <vector>
 #include <iostream>
 
-#include "../../lib/FileManager/inc/File.hpp"
+#include "File.hpp"
 
 std::vector<std::string> getFile(std::string s)
 {
@@ -29,7 +29,7 @@ std::vector<std::string> getFile(std::string s)
 int main()
 {
     /* INIT */
-    FileManager::File f("../../CMakeLists.txt");
+    FileManager::File f("../CMakeLists.txt");
 
     FileManager::File f1;
     FileManager::File f2;
@@ -45,9 +45,9 @@ int main()
 
     /* TESTTING LOAD */
 
-    if (!f1.setPath("../../.gitignore"))
+    if (!f1.setPath("../.gitignore"))
         return 84;
-    if (!f2.setPath("../../lib/FileManager/inc/File.hpp"))
+    if (!f2.setPath("../lib/FileManager/inc/File.hpp"))
         return 84;
 
     std::cout << "LOAD : \t\t[\033[1;32mOK\033[0m]" << std::endl;
@@ -65,11 +65,11 @@ int main()
 
     /* TESTTING PATH */
 
-    if (f.getPath() != "../../CMakeLists.txt")
+    if (f.getPath() != "../CMakeLists.txt")
         return 84;
-    if (f1.getPath() != "../../.gitignore")
+    if (f1.getPath() != "../.gitignore")
         return 84;
-    if (f2.getPath() != "../../lib/FileManager/inc/File.hpp")
+    if (f2.getPath() != "../lib/FileManager/inc/File.hpp")
         return 84;
 
     std::cout << "PATH : \t\t[\033[1;32mOK\033[0m]" << std::endl;

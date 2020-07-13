@@ -10,7 +10,7 @@
 #include <vector>
 #include <iostream>
 
-#include "../../lib/FileManager/inc/Parser.hpp"
+#include "Parser.hpp"
 
 std::vector<std::string> getFile(std::string s)
 {
@@ -30,7 +30,7 @@ int main()
 {
     /* INIT */
     FileManager::Parser p;
-    FileManager::File f("../../CMakeLists.txt");
+    FileManager::File f("../CMakeLists.txt");
 
     /* TEST PARSE EC */
     if (p.find("NYA", f) != "")

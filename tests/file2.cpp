@@ -10,13 +10,13 @@
 #include <vector>
 #include <iostream>
 
-#include "../../lib/FileManager/inc/File.hpp"
+#include "File.hpp"
 
 int main()
 {
     /* INIT */
-    FileManager::File f("../../CMakeLists.txt");
-    FileManager::File f2("../../build.sh");
+    FileManager::File f("../CMakeLists.txt");
+    FileManager::File f2("../build.sh");
 
     /* TEST CR & RM EC */
     if (!f.isFile())
