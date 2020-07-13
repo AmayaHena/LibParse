@@ -23,10 +23,7 @@ namespace FileManager {
             if (f.getPath() == path)
                 return false;
 
-        if (!_f.setPath(path))
-            return false;
-
-        _cont.push_back(std::move(_f));
+        _cont.push_back({ path });
         return true;
     }
 

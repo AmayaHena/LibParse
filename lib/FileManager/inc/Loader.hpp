@@ -36,9 +36,6 @@ namespace FileManager {
             /* Container */
             std::vector<File> _cont;
 
-            /* File object */
-            File _f;
-
     };
 
 }
