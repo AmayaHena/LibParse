@@ -25,7 +25,7 @@ jobs:
     - name: build
       run: ./build.sh
     - name: test_file
-      run: cd tests && g++ file.cpp -fPIC libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
+      run: cd tests && g++ file.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
 
   test_file_2:
 
@@ -36,7 +36,7 @@ jobs:
     - name: build
       run: ./build.sh
     - name: test_file_2
-      run: cd tests && g++ file2.cpp -fPIC libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
+      run: cd tests && g++ file2.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
 
   test_loader:
 
@@ -47,7 +47,7 @@ jobs:
     - name: build
       run: ./build.sh
     - name: test_loader
-      run: cd tests && g++ loader.cpp -fPIC libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
+      run: cd tests && g++ loader.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
 
   test_parser:
 
@@ -58,4 +58,4 @@ jobs:
     - name: build
       run: ./build.sh
     - name: test_parser
-      run: cd tests && g++ parser.cpp -fPIC libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
+      run: cd tests && g++ parser.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
