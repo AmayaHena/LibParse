@@ -42,9 +42,7 @@ namespace FileManager {
     {
         if (!createFile() || _path.empty())
             return false;
-        if (!write(in))
-            return false;
-        return true;
+        return write(in);
     }
 
     bool File::write(const std::vector<std::string> &in) const noexcept
