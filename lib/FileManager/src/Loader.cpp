@@ -17,7 +17,7 @@ namespace FileManager {
 
     /* PUBLIC METHOD */
 
-    bool Loader::load(const std::string &path)
+    bool Loader::load(const std::string &path) noexcept
     {
         for (File &f : _cont)
             if (f.getPath() == path)
@@ -30,7 +30,7 @@ namespace FileManager {
         return true;
     }
 
-    bool Loader::delFile(const std::string &path)
+    bool Loader::delFile(const std::string &path) noexcept
     {
         for (size_t it = 0; it < _cont.size(); it++)
             if (_cont[it].getPath() == path)
@@ -38,7 +38,7 @@ namespace FileManager {
         return false;
     }
 
-    bool Loader::delFile(size_t pos)
+    bool Loader::delFile(size_t pos) noexcept
     {
         if (static_cast<int>(pos) < 0
         || pos > _cont.size()
@@ -49,9 +49,7 @@ namespace FileManager {
         return true;
     }
 
-    size_t Loader::getFileNb() { return _cont.size(); }
-
-    bool Loader::isFile(const std::string &s)
+    bool Loader::isFile(const std::string &s) const noexcept
     {
         for (const File &f : _cont)
             if (f.getPath() == s)
