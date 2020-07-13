@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
-project(Nyx VERSION 1.0 DESCRIPTION "Nyx description")
+project(Nyx VERSION 1.0)
 
 SET(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic")
+set(CMAKE_BUILD_TYPE Release)
 
 add_library(Nyx SHARED
 
