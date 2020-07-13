@@ -11,7 +11,7 @@ namespace FileManager {
 
     /* PRIVATE METHOD */
 
-    void Parser::cleanG(std::string &s) const
+    void Parser::trimLine(std::string &s) const
     {
         if (s[s.size() - 1] != ' ')
             return;
@@ -25,13 +25,13 @@ namespace FileManager {
         }
     }
 
-    std::vector<std::string> Parser::cleanV(std::vector<std::string> v) const noexcept
+    std::vector<std::string> Parser::trimCont(std::vector<std::string> v) const noexcept
     {
         std::vector<std::string> r;
 
         for (std::string &s: v) {
             if (!s.empty()) {
-                cleanG(s);
+                trimLine(s);
                 if (!s.empty())
                     r.push_back(s);
             }
