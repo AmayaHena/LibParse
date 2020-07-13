@@ -102,8 +102,6 @@ namespace FileManager {
 
     bool File::load() noexcept
     {
-        if (!isFile())
-            return false;
         parseExt(_path);
         _name = parseName(_path);
         return true;
