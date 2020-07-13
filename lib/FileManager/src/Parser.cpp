@@ -11,7 +11,7 @@ namespace FileManager {
 
     /* PRIVATE METHOD */
 
-    void Parser::cleanG(std::string &s)
+    void Parser::cleanG(std::string &s) const
     {
         if (s[s.size() - 1] != ' ')
             return;
@@ -25,7 +25,7 @@ namespace FileManager {
         }
     }
 
-    std::vector<std::string> Parser::cleanV(std::vector<std::string> v)
+    std::vector<std::string> Parser::cleanV(std::vector<std::string> v) const noexcept
     {
         std::vector<std::string> r;
 
@@ -39,7 +39,7 @@ namespace FileManager {
         return r;
     }
 
-    std::string Parser::findS(const std::string &s, const std::vector<std::string> &v, size_t i)
+    std::string Parser::findS(const std::string &s, const std::vector<std::string> &v, size_t i) const noexcept
     {
         while (i < v.size()) {
             if (v[i].find(s, 0) != std::string::npos)
