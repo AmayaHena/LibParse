@@ -15,7 +15,6 @@ namespace FileManager {
 
         public:
 
-            Loader() = default;
             Loader(const std::string &path);
             ~Loader() noexcept;
 
