@@ -45,11 +45,9 @@ int main()
     /* TEST PARSE */
     if (p.find("SHARED", f) != "add_library(Nyx SHARED")
         return 84;
-    if (p.find("CXX_FLAGS", f) != "SET(CMAKE_CXX_FLAGS \"-Wall -Wextra -pedantic -Werror\")")
+    if (p.find("CXX_FLAGS", f) != "SET(CMAKE_CXX_FLAGS \"-Wall -Wextra -pedantic\")")
         return 84;
     if (p.find("PUBLIC", f) != "    PUBLIC lib/FileManager/inc/")
-        return 84;
-    if (p.find("PUBLIC", f, 19) != "    PUBLIC lib/FormatParser/inc/")
         return 84;
 
     std::cout << "PARSE : \t[\033[1;32mOK\033[0m]" << std::endl;
