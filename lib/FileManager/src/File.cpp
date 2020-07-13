@@ -104,6 +104,8 @@ namespace FileManager {
     {
         parseExt(_path);
         _name = parseName(_path);
+        if (!isFile())
+            return false;
         return true;
     }
 
