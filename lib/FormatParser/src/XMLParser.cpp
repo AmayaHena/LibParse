@@ -11,9 +11,9 @@ namespace FormatParser {
 
     /* PRIVATE METHODS */
 
-    std::string XMLParser::getLValue(const std::string &s) { return s.substr(s.find_first_of("<") + 1, s.find_first_of(">") - 1); }
+    std::string XMLParser::getLValue(const std::string &s) const { return s.substr(s.find_first_of("<") + 1, s.find_first_of(">") - 1); }
 
-    std::string XMLParser::getRValue(const std::vector<std::string> &v, size_t i)
+    std::string XMLParser::getRValue(const std::vector<std::string> &v, size_t i) const
     {
         std::string s;
 
@@ -35,12 +35,9 @@ namespace FormatParser {
         return s;
     }
 
-    std::vector<std::pair<std::string, std::string>> XMLParser::parseAD(const std::vector<std::string> &v)
+    std::vector<std::pair<std::string, std::string>> XMLParser::parseAD(const std::vector<std::string> &v) const
     {
         std::vector<std::pair<std::string, std::string>> rez;
-
-        if (v.empty())
-            return rez;
 
         for (size_t i = 0; i < v.size(); i++) {
             if (!v[i].empty()) {
