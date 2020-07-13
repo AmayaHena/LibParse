@@ -19,12 +19,12 @@ namespace FileManager {
             ~Parser() = default;
 
             /* Clean */
-            inline std::vector<std::string> clean(File &f) const noexcept { return cleanV(f.getContent()); }
-            inline std::vector<std::string> clean(const std::vector<std::string> &v) const noexcept { return cleanV(v); }
+            inline std::vector<std::string> clean(File &f) const { return cleanV(f.getContent()); }
+            inline std::vector<std::string> clean(const std::vector<std::string> &v) const { return cleanV(v); }
 
             /* Parse */
-            inline std::string find(const std::string &s, File &f, size_t i = 0) const noexcept  { return findS(s, f.getContent(), i); }
-            inline std::string find(const std::string &s, const std::vector<std::string> &v, size_t i = 0) const noexcept { return findS(s, v, i); }
+            inline std::string find(const std::string &s, File &f, size_t i = 0) const { return findS(s, f.getContent(), i); }
+            inline std::string find(const std::string &s, const std::vector<std::string> &v, size_t i = 0) const { return findS(s, v, i); }
 
         private:
 
