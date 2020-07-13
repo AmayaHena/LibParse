@@ -24,8 +24,9 @@ int main()
     /* TEST LOAD EC */
     if (f.load("../ec.txt"))
         return 84;
-    if (f.getFileNb() != 0)
+    if (f.getFileNb() != 1)
         return 84;
+    f.delFile("../ec.txt");
 
     std::cout << "LOAD EC : \t[\033[1;32mOK\033[0m]" << std::endl;
 
