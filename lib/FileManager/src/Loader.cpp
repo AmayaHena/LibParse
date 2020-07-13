@@ -24,6 +24,9 @@ namespace FileManager {
                 return false;
 
         _cont.push_back({ path });
+
+        if (!_cont[_cont.size() - 1].isFile())
+            return false;
         return true;
     }
 
