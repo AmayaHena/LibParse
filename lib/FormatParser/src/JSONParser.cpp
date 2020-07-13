@@ -11,11 +11,11 @@ namespace FormatParser {
 
     /* PRIVATE METHODS */
 
-    std::string JSONParser::getLValue(const std::string &s) { return s.substr(s.find_first_of("\"") + 1, s.find("\"", s.find("\"") + 1) - s.find_first_of("\"") - 1); }
+    std::string JSONParser::getLValue(const std::string &s) const { return s.substr(s.find_first_of("\"") + 1, s.find("\"", s.find("\"") + 1) - s.find_first_of("\"") - 1); }
 
-    std::string JSONParser::getRValue(const std::string &s) { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
+    std::string JSONParser::getRValue(const std::string &s) const { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
 
-    size_t JSONParser::makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it)
+    size_t JSONParser::makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it) const
     {
         if (v[it].find("[") != std::string::npos && v[it].find("]") == std::string::npos) {
             const std::string s = getLValue(v[it]);
@@ -30,7 +30,7 @@ namespace FormatParser {
         return it;
     }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v)
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v) const
     {
         std::vector<std::pair<std::string, std::string>> r;
 
@@ -39,7 +39,7 @@ namespace FormatParser {
         return r;
     }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseS(const std::vector<std::string> &v, const std::string &match)
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseS(const std::vector<std::string> &v, const std::string &match) const noexcept
     {
         std::vector<std::pair<std::string, std::string>> r;
 
@@ -65,7 +65,7 @@ namespace FormatParser {
         return r;
     }
 
-    std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match)
+    std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match) const noexcept
     {
         if (match.empty())
             return "";
@@ -76,7 +76,7 @@ namespace FormatParser {
         return "";
     }
 
-    std::vector<std::string> JSONParser::getSName(const std::vector<std::string> &v)
+    std::vector<std::string> JSONParser::getSName(const std::vector<std::string> &v) const
     {
         std::vector<std::string> r;
 
