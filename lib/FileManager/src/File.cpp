@@ -38,7 +38,7 @@ namespace FileManager {
         return load();
     }
 
-    bool File::create(const std::vector<std::string> &in)
+    bool File::create(const std::vector<std::string> &in) const noexcept
     {
         if (!createFile() || _path.empty())
             return false;
@@ -47,7 +47,7 @@ namespace FileManager {
         return true;
     }
 
-    bool File::write(const std::vector<std::string> &in)
+    bool File::write(const std::vector<std::string> &in) const noexcept
     {
         if (!isFile() || _path.empty())
             return false;
@@ -61,7 +61,7 @@ namespace FileManager {
         return true;
     }
 
-    bool File::rm()
+    bool File::rm() const noexcept
     {
         if (!isFile() || _path.empty())
             return false;
@@ -70,7 +70,7 @@ namespace FileManager {
         return true;
     }
 
-    std::vector<std::string> File::getContent()
+    std::vector<std::string> File::getContent() const
     {
         std::vector<std::string> cont;
         std::fstream f(_path);
@@ -86,7 +86,7 @@ namespace FileManager {
 
     /* PRIVATE METHODS */
 
-    bool File::createFile()
+    bool File::createFile() const noexcept
     {
         if (isFile())
             return false;
@@ -100,7 +100,7 @@ namespace FileManager {
         return true;
     }
 
-    bool File::load()
+    bool File::load() noexcept
     {
         if (!isFile())
             return false;
@@ -109,7 +109,7 @@ namespace FileManager {
         return true;
     }
 
-    size_t File::getLength(std::string &s)
+    size_t File::getLength(std::string &s) const
     {
         size_t p = s.find_last_of("/") + 1;
 
@@ -119,7 +119,7 @@ namespace FileManager {
         return p;
     }
 
-    std::string File::parseName(std::string s)
+    std::string File::parseName(std::string s) const
     {
         if (s.find(".") == std::string::npos
         && s.find("/") == std::string::npos)
