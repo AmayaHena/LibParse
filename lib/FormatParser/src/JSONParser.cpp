@@ -50,17 +50,13 @@ namespace FormatParser {
 
         size_t it = 0;
 
-        while (it < v.size())
-            if (v[it++].find("\"" + match + "\": {") != std::string::npos)
-                break;
-        if (it == v.size())
-            return r;
+        while (v[it++].find("\"" + match + "\": {") != std::string::npos)
+            if (it >= v.size())
+                return r;
 
         for (size_t ob = 1; ob > 0; it++) {
-            if (v[it].find("{") != std::string::npos)
-                ob++;
-            else if (v[it].find("}") != std::string::npos)
-                ob--;
+            if (v[it].find("{") != std::string::npos) ob++;
+            else if (v[it].find("}") != std::string::npos) ob--;
 
             makePair(v[it], r);
         }
