@@ -35,7 +35,7 @@ namespace FormatParser {
         return s;
     }
 
-    std::vector<std::pair<std::string, std::string>> XMLParser::parseAD(const std::vector<std::string> &v) const
+    std::vector<std::pair<std::string, std::string>> XMLParser::parseAll(const std::vector<std::string> &v) const
     {
         std::vector<std::pair<std::string, std::string>> rez;
 

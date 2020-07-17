@@ -21,8 +21,8 @@ namespace FormatParser {
             XMLParser() = default;
 
             /* Parse */
-            inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f) const { return parseAD(f.getContent()); }
-            inline std::vector<std::pair<std::string, std::string>> parse(const std::vector<std::string> &v) const { return parseAD(v); }
+            inline std::vector<std::pair<std::string, std::string>> parse(FileManager::File &f) const { return parseAll(f.getContent()); }
+            inline std::vector<std::pair<std::string, std::string>> parse(const std::vector<std::string> &v) const { return parseAll(v); }
 
         private:
 
@@ -31,7 +31,7 @@ namespace FormatParser {
             std::string getRValue(const std::vector<std::string> &v, size_t i) const;
 
             /* Parsing */
-            std::vector<std::pair<std::string, std::string>> parseAD(const std::vector<std::string> &v) const;
+            std::vector<std::pair<std::string, std::string>> parseAll(const std::vector<std::string> &v) const;
 
     };
 
