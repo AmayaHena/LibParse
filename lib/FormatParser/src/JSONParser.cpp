@@ -11,9 +11,12 @@ namespace FormatParser {
 
     /* PRIVATE METHODS */
 
-    std::string JSONParser::getLValue(const std::string &s) const { return s.substr(s.find_first_of("\"") + 1, s.find("\"", s.find("\"") + 1) - s.find_first_of("\"") - 1); }
+    std::string JSONParser::getString(const std::string &s, size_t i) const
+    {
+        size_t ft = s.find("\"", i) + 1;
 
-    std::string JSONParser::getRValue(const std::string &s) const { return s.substr(s.find("\"", s.find(":")) + 1, s.find_last_of("\"") - s.find("\"", s.find(":")) - 1); }
+        return s.substr(ft, s.find("\"", ft) - ft);
+    }
 
     size_t JSONParser::makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it) const
     {
