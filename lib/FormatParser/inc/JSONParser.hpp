@@ -44,7 +44,7 @@ namespace FormatParser {
             inline std::string getRValue(const std::string &s) const { return getString(s, s.find(":")); }
 
             /* Compute LV & RV */
-            size_t makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it) const;
+            void makePair(const std::string &s, std::vector<std::pair<std::string, std::string>> &r) const;
 
             /* Parsing */
             std::vector<std::pair<std::string, std::string>> parseAD(const std::vector<std::string> &v) const;

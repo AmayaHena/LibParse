@@ -18,27 +18,26 @@ namespace FormatParser {
         return s.substr(ft, s.find("\"", ft) - ft);
     }
 
-    size_t JSONParser::makePair(const std::vector<std::string> &v, std::vector<std::pair<std::string, std::string>> &r, size_t it) const
+    void JSONParser::makePair(const std::string &s, std::vector<std::pair<std::string, std::string>> &r) const
     {
-        if (v[it].find("[") != std::string::npos && v[it].find("]") == std::string::npos) {
-            const std::string s = getLValue(v[it]);
-            while (v[it++].find("]") == std::string::npos)
-                r.push_back(make_pair(s, getRValue(v[it])));
-            return it;
+        if (s.find("{") == std::string::npos
+        && s.find("}") == std::string::npos
+        && !s.empty()) {
+            if (s.find("true") != std::string::npos)
+                r.push_back(make_pair(getLValue(s), "true"));
+            else if (s.find("false") != std::string::npos)
+                r.push_back(make_pair(getLValue(s), "false"));
+            else
+                r.push_back(make_pair(getLValue(s), getRValue(s)));
         }
-
-        else if (v[it].find("{") == std::string::npos && v[it].find("}") == std::string::npos
-        && !v[it].empty())
-            r.push_back(make_pair(getLValue(v[it]), getRValue(v[it])));
-        return it;
     }
 
     std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v) const
     {
         std::vector<std::pair<std::string, std::string>> r;
 
-        for (size_t it = 0; it < v.size(); it++)
-            it = makePair(v, r, it);
+        for (const std::string &s : v)
+            makePair(s, r);
         return r;
     }
 
@@ -63,7 +62,7 @@ namespace FormatParser {
             else if (v[it].find("}") != std::string::npos)
                 ob--;
 
-            it = makePair(v, r, it);
+            makePair(v[it], r);
         }
         return r;
     }
