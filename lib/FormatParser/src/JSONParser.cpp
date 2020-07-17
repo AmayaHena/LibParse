@@ -32,7 +32,7 @@ namespace FormatParser {
         }
     }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseAD(const std::vector<std::string> &v) const
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseAll(const std::vector<std::string> &v) const
     {
         std::vector<std::pair<std::string, std::string>> r;
 
@@ -41,7 +41,7 @@ namespace FormatParser {
         return r;
     }
 
-    std::vector<std::pair<std::string, std::string>> JSONParser::parseS(const std::vector<std::string> &v, const std::string &match) const noexcept
+    std::vector<std::pair<std::string, std::string>> JSONParser::parseSection(const std::vector<std::string> &v, const std::string &match) const noexcept
     {
         std::vector<std::pair<std::string, std::string>> r;
 
@@ -67,7 +67,7 @@ namespace FormatParser {
         return r;
     }
 
-    std::string JSONParser::parseO(const std::vector<std::string> &v, const std::string &match) const noexcept
+    std::string JSONParser::parseValue(const std::vector<std::string> &v, const std::string &match) const noexcept
     {
         if (match.empty())
             return "";
