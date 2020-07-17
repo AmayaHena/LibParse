@@ -41,12 +41,22 @@ namespace FileManager {
 
     std::string Parser::findS(const std::string &s, const std::vector<std::string> &v, size_t i) const noexcept
     {
+        if (s.empty())
+            return "";
+
         while (i < v.size()) {
             if (v[i].find(s, 0) != std::string::npos)
                 return v[i];
             i++;
         }
         return "";
+    }
+
+    std::string Parser::getRawString(const std::string &s, char c, size_t i) const
+    {
+        size_t ft = s.find(c, i) + 1;
+
+        return s.substr(ft, s.find(c, ft) - ft);
     }
 
 }
