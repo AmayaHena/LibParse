@@ -18,15 +18,22 @@ namespace FormatParser {
         return s.substr(ft, s.find("\"", ft) - ft);
     }
 
+    std::string JSONParser::getRVNoStr(const std::string &s) const
+    {
+        size_t ft = s.find_first_not_of(" ", s.find_first_of(":") + 1);
+
+        if (s.find(",") != std::string::npos)
+            return s.substr(ft, s.find(",", ft) - ft);
+        return s.substr(ft, s.size());
+    }
+
     void JSONParser::makePair(const std::string &s, std::vector<std::pair<std::string, std::string>> &r) const
     {
         if (s.find("{") == std::string::npos
         && s.find("}") == std::string::npos
         && !s.empty()) {
-            if (s.find("true") != std::string::npos)
-                r.push_back(make_pair(getLValue(s), "true"));
-            else if (s.find("false") != std::string::npos)
-                r.push_back(make_pair(getLValue(s), "false"));
+            if (s.find("\"", s.find(":") + 1) == std::string::npos)
+                r.push_back(make_pair(getLValue(s), getRVNoStr(s)));
             else
                 r.push_back(make_pair(getLValue(s), getRValue(s)));
         }
