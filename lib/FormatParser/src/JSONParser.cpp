@@ -20,11 +20,14 @@ namespace FormatParser {
 
     std::string JSONParser::getRVNoStr(const std::string &s) const
     {
+        if (s.find(":", s.find_last_of("\"")) == s.size() - 1)
+            return "";
+
         size_t ft = s.find_first_not_of(" ", s.find_first_of(":") + 1);
 
         if (s.find(",") != std::string::npos)
             return s.substr(ft, s.find(",", ft) - ft);
-        return s.substr(ft, s.size());
+        return s.substr(ft, s.size() - ft);
     }
 
     void JSONParser::makePair(const std::string &s, std::vector<std::pair<std::string, std::string>> &r) const
@@ -57,15 +60,19 @@ namespace FormatParser {
 
         size_t it = 0;
 
-        while (v[it++].find("\"" + match + "\": {") != std::string::npos)
-            if (it >= v.size())
-                return r;
+        while (it < v.size())
+            if (v[it++].find("\"" + match + "\": {") != std::string::npos)
+                break;
+        if (it == v.size())
+            return r;
 
         for (size_t ob = 1; ob > 0; it++) {
-            if (v[it].find("{") != std::string::npos) ob++;
-            else if (v[it].find("}") != std::string::npos) ob--;
-
-            makePair(v[it], r);
+            if (v[it].find("{") != std::string::npos)
+                ob++;
+            else if (v[it].find("}") != std::string::npos)
+                ob--;
+            else
+                makePair(v[it], r);
         }
         return r;
     }
