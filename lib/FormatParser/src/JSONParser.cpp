@@ -15,7 +15,7 @@ namespace FormatParser {
     {
         size_t ft = s.find("\"", i) + 1;
 
-        return s.substr(ft, s.find("\"", ft) - ft);
+        return s.substr(ft, s.find_last_of("\"", ft) - ft);
     }
 
     std::string JSONParser::getRVNoStr(const std::string &s) const
