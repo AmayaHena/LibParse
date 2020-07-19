@@ -1,0 +1,27 @@
+{
+    "Name": "ForgotenMemories",
+    "Type": "Memoria",
+
+    "SelfEvaluation": {
+        "Type": "Incomplete",
+        "Id": "025",
+        "Finished": false
+    },
+
+    "error_case": {
+        "Pattern":
+    },
+
+    "numbers": {
+        "nb": 1,
+        "nb1": 1567,
+        "nb2": 12345,
+        "nb3": 5671
+    },
+
+    "FinalEvalutation": {
+        "Type": "Invalid",
+        "Id": "#000",
+        "Finished": true
+    }
+}

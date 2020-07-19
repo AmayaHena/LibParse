@@ -1,0 +1,13 @@
+Name ForgotenMemories
+Type "Memoria
+Type Incomplete
+Id 025
+Finished false
+Pattern
+nb 1
+nb1 1567
+nb2 12345
+nb3 5671
+Type Invalid
+Id #000
+Finished true
