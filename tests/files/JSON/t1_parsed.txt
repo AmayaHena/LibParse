@@ -1,9 +1,9 @@
 Name ForgotenMemories
-Type "Memoria
+Type Memoria
 Type Incomplete
 Id 025
 Finished false
-Pattern
+Pattern 
 nb 1
 nb1 1567
 nb2 12345

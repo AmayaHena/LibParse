@@ -12,8 +12,9 @@ int main()
     FileManager::File f_tp("files/JSON/t1.json");
     FileManager::File f_p("files/JSON/t1_parsed.txt");
 
-    if (!f_tp.isFile()
-    || !f_p.isFile())
+    if (!f_tp.isFile())
+        return 84;
+    if (!f_p.isFile())
         return 84;
 
     FormatParser::JSONParser j;
@@ -22,6 +23,10 @@ int main()
     std::vector<std::string> v = f_p.getContent();
 
     for (std::pair<std::string, std::string> p : j.parse(f_tp)) {
+
+        std::cout << "[TP] " << p.first << " " << p.second << std::endl;
+        std::cout << "[P] " << v[it] << std::endl;
+
         if (v[it] != (p.first + " " + p.second))
             return 84;
         it++;
