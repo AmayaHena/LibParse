@@ -52,7 +52,7 @@ namespace FileManager {
         return "";
     }
 
-    std::string Parser::getRawString(const std::string &s, char c, size_t i) const
+    std::string Parser::getRawString(const std::string &s, const char c, size_t i) const
     {
         size_t ft = s.find(c, i) + 1;
 
