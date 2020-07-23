@@ -32,9 +32,13 @@ int main()
         it++;
     }
 
+    std::cout << "---" << std::endl;
+
     if (!f_p.setPath("files/JSON/t2_parsed.txt"))
         return 84;
 
+    it = 0;
+    v = f_p.getContent();
     for (std::string s : j.getSection(f_tp)) {
 
         std::cout << "[TP] " << s << std::endl;
