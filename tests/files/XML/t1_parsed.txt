@@ -1,9 +1,9 @@
-Re:Zero
-Rem
-Waifu
-Fantastic
-Sakurasou
-Mashiro
-Shiina
-Who is the best girl?
-Rem, I guess
+title Re:Zero
+first-name Rem
+last-name Waifu
+genre Fantastic
+title Sakurasou
+first-name Mashiro
+last-name Shiina
+question Who is the best girl?
+answer Rem, I guess
