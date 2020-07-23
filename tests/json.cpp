@@ -32,5 +32,18 @@ int main()
         it++;
     }
 
+    if (!f_p.setPath("files/JSON/t2_parsed.txt"))
+        return 84;
+
+    for (std::string s : j.getSection(f_tp)) {
+
+        std::cout << "[TP] " << s << std::endl;
+        std::cout << "[P] " << v[it] << std::endl;
+
+        if (v[it] != (p.first + " " + p.second))
+            return 84;
+        it++;
+    }
+
     return 0;
 }
