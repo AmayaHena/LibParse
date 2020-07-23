@@ -1,0 +1,20 @@
+<bookstore>
+    <book>
+        <title>Re:Zero</title>
+        <author>
+            <first-name>Rem</first-name>
+            <last-name>Waifu</last-name>
+        </author>
+        <genre>Fantastic</genre>
+    </book>
+    <book>
+        <title>Sakurasou</title>
+        <author>
+            <first-name>Mashiro</first-name>
+            <last-name>Shiina</last-name>
+        </author>
+    </book>
+</bookstore>
+
+<question>Who is the best girl?</question>
+<answer>Rem, I guess</answer>
