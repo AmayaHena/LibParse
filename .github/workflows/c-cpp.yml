@@ -70,3 +70,14 @@ jobs:
       run: ./build.sh
     - name: test_json
       run: cd tests && g++ json.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
+
+  test_xml:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: ./build.sh
+    - name: test_xml
+      run: cd tests && g++ xml.cpp -fPIC ../libNyx.so -I ../lib/FileManager/inc -I ../lib/FormatParser/inc && LD_PRELOAD=../libNyx.so ./a.out
