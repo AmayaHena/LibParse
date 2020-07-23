@@ -44,7 +44,7 @@ namespace FormatParser {
             inline std::string getRValue(const std::string &s) const { return getString(s, '>', '<'); }
 
             /* Identification */
-            char getCNb(const std::string s, char c) const;
+            char getCNb(const std::string &s, const char c) const;
 
             /* Compute LV & RV */
             void makePair(const std::string &s, std::vector<std::pair<std::string, std::string>> &r) const;

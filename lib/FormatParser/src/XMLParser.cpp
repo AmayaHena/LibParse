@@ -18,7 +18,7 @@ namespace FormatParser {
         return s.substr(ft, s.find(e, ft) - ft);
     }
 
-    char XMLParser::getCNb(const std::string s, char c) const
+    char XMLParser::getCNb(const std::string &s, const char c) const
     {
         char it = 0;
 
