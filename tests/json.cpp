@@ -40,7 +40,7 @@ int main()
         std::cout << "[TP] " << s << std::endl;
         std::cout << "[P] " << v[it] << std::endl;
 
-        if (v[it] != (p.first + " " + p.second))
+        if (v[it] != s)
             return 84;
         it++;
     }
