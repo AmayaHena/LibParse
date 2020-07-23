@@ -59,8 +59,12 @@ namespace FormatParser {
         if (it == v.size())
             return r;
 
-        while (v[it] != "<" + match + "/>")
+
+        while (v[it].find("</" + match + ">") == std::string::npos) {
+            if (it >= v.size())
+                return r;
             makePair(v[it++], r);
+        }
         return r;
     }
 

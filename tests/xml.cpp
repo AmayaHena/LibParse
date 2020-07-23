@@ -49,5 +49,22 @@ int main()
         it++;
     }
 
+    std::cout << "---" << std::endl;
+
+    if (!f_p.setPath("files/XML/t3_parsed.txt"))
+        return 84;
+
+    it = 0;
+    v = f_p.getContent();
+    for (std::pair<std::string, std::string> p : j.parse(f_tp, "book")) {
+
+        std::cout << "[TP] " << p.first << " " << p.second << std::endl;
+        std::cout << "[P] " << v[it] << std::endl;
+
+        if (v[it] != (p.first + " " + p.second))
+            return 84;
+        it++;
+    }
+
     return 0;
 }
