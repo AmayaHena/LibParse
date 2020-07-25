@@ -27,7 +27,7 @@ namespace FileManager {
             inline std::string find(const std::string &s, const std::vector<std::string> &v, size_t i = 0) const { return findS(s, v, i); }
 
             /* Parse Raw String */
-            std::string getRawString(const std::string &s, const char c = '\"', size_t i = 0) const;
+            std::string getRawString(const std::string &s, const char c = '\"', const size_t i = 0) const;
 
         private:
 
