@@ -1,5 +1,7 @@
 Name ForgotenMemories
 Type Memoria
+bug test 1 hey""hello
+bug test 2 hey \ hello
 Type Incomplete
 Id 025
 Finished false
@@ -11,3 +13,4 @@ nb3 5671
 Type Invalid
 Id #000
 Finished true
+lel #000

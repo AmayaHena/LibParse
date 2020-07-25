@@ -1,6 +1,8 @@
 {
     "Name": "ForgotenMemories",
     "Type": "Memoria",
+    "bug test 1": "hey""hello",
+    "bug test 2": "hey \ hello",
 
     "SelfEvaluation": {
         "Type": "Incomplete",
@@ -23,5 +25,7 @@
         "Type": "Invalid",
         "Id": "#000",
         "Finished": true
-    }
+    },
+
+    "lel": "#000"
 }

@@ -11,10 +11,12 @@ namespace FormatParser {
 
     /* PRIVATE METHODS */
 
-    std::string JSONParser::getString(const std::string &s, size_t i) const
+    std::string JSONParser::getString(const std::string &s, const size_t i, bool last) const
     {
         size_t ft = s.find("\"", i) + 1;
 
+        if (last)
+            return s.substr(ft, s.find_last_of("\"")  - ft);
         return s.substr(ft, s.find("\"", ft) - ft);
     }
 
