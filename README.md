@@ -34,7 +34,7 @@ mkdir build && cd build && cmake .. && make
 ```
 
 ## Clean
-If needed a cute script to clean the files generated after a build:
+If needed a clean script to clean the files generated after a build:
 ```
 #!/bin/bash
 
